@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',['uses'=>'SiteController@index','as'=>'home']);
 
+Route::get('/ecoles',['uses'=>'EcoleController@index','as'=>'ecoles']);
+
+Route::get('/centre-de-langues',['uses'=>'CenterController@index','as'=>'centres']);
+
+Route::get('/cours-de-soutiens',['uses'=>'SoutienController@index','as'=>'cours']);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
