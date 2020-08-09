@@ -12,8 +12,6 @@
         return httpRequest.responseText;
     }
 
-
-
     function mainMap() {
         function locationData(locationURL, locationImg, locationTitle, locationAddress, locationCategory, locationStarRating, locationRevievsCounter, locationStatus) {
             return ('<div class="map-popup-wrap"><div class="map-popup"><div class="infoBox-close"><i class="fal fa-times"></i></div><a href="' + locationURL + '" class="listing-img-content fl-wrap"><div class="infobox-status '+ locationStatus +'">' + locationStatus + '</div><img src="' + locationImg + '" alt=""><div class="card-popup-raining map-card-rainting" data-staRrating="' + locationStarRating + '"><span class="map-popup-reviews-count">( ' + locationRevievsCounter + ' reviews )</span></div></a> <div class="listing-content"><div class="listing-content-item fl-wrap"><div class="map-popup-location-category ' + locationCategory + '"></div><div class="listing-title fl-wrap"><h4><a href=' + locationURL + '>' + locationTitle + '</a></h4><div class="map-popup-location-info"><i class="fas fa-map-marker-alt"></i>' + locationAddress + '</div></div><div class="map-popup-footer"><a href=' + locationURL + ' class="main-link">Details <i class="fal fa-long-arrow-right"></i></a><a href="#" class="infowindow_wishlist-btn"><i class="fal fa-heart"></i></a></div></div></div></div> ')
@@ -22,11 +20,11 @@
         let locations=[];
         let ecoles = JSON.parse(getEcoles()) ; // always ends up being 'undefined'
        //  console.log(ecoles);
-         ecoles.data.forEach(function(ecole){
+         ecoles.data.forEach(function(ecole,index){
              //console.log(ecole.image);
-             locations.push([locationData(ecole.slug, ecole.image, ecole.name, ecole.addresse, ecole.area, "5", "12", "open"  ),ecole.lat, ecole.lng, ecole.id, ecole.logo])
+             locations.push([locationData(ecole.slug, ecole.image, ecole.name, ecole.addresse, ecole.area, "5", "12", "open"  ),ecole.lat, ecole.lng, index, ecole.logo])
          });
-         console.log(locations.length);
+         console.log(locations);
        /* var locations = [
 
             [locationData('listing-single2.html', 'images/all/1.jpg', 'Luxary Resaturant', " 27th Brooklyn New York, USA", 'cafe-cat', "5", "12", "open"  ), 40.72956781, -73.99726866, 0 , 'images/all/1.jpg'],
@@ -75,13 +73,6 @@
             pane: "floatPane",
             enableEventPropagation: false,
         };
-
-
-
-
-
-
-
 
       var markerCluster, overlay, i;
       var allMarkers = [];

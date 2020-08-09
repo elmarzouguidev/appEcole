@@ -260,7 +260,7 @@
                         <div class="geodir-category-content-title-item">
                             <h3 class="title-sin_map"><a href="listing-single.html">{{$ecole->name}}</a><span class="verified-badge"><i class="fal fa-check"></i></span></h3>
                             <div class="geodir-category-location fl-wrap">
-                                <a href="#{{$ecole->id}}" class="map-item">
+                                <a href="#{{$loop->index+1}}" class="map-item">
                                     <i class="fas fa-map-marker-alt"></i> {{$ecole->addresse}}
                                 </a>
                             </div>
@@ -286,7 +286,7 @@
                         <div class="geodir-opt-list">
                             <ul class="no-list-style">
                                 <li><a href="#" class="show_gcc"><i class="fal fa-envelope"></i><span class="geodir-opt-tooltip">Contact Info</span></a></li>
-                                <li><a href="#{{$ecole->id}}" class="map-item"><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map <strong>1</strong></span> </a></li>
+                                <li><a href="#{{$loop->index+1}}" class="map-item"><i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map <strong>{{$ecole->id}}</strong></span> </a></li>
                                 <li>
                                     <div class="dynamic-gal gdop-list-link" data-dynamicPath="[{'src': 'images/all/1.jpg'},{'src': 'images/all/1.jpg'}, {'src': 'images/all/1.jpg'}]"><i class="fal fa-search-plus"></i><span class="geodir-opt-tooltip">Gallery</span></div>
                                 </li>
