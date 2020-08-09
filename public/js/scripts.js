@@ -12,15 +12,15 @@ function initTowhub() {
     a.each(function (a) {
         if ($(this).attr("data-bg")) $(this).css("background-image", "url(" + $(this).data("bg") + ")");
     });
-    //   swiper ------------------	
+    //   swiper ------------------
     if ($(".listing-slider").length > 0) {
         var lsw = new Swiper(".listing-slider .swiper-container", {
             preloadImages:true,
             slidesPerView: 4,
-            spaceBetween: 15,
-            loop: true,
+            spaceBetween: 10,
+            loop: false,
 
-            grabCursor: true,
+            grabCursor: false,
             mousewheel: false,
             centeredSlides: true,
             pagination: {
@@ -33,12 +33,7 @@ function initTowhub() {
                 prevEl: '.listing-carousel-button-prev2',
             },
             breakpoints: {
-                1650: {
-                    slidesPerView: 3,
-                },
-                1270: {
-                    slidesPerView: 2,
-                },
+
                 850: {
                     slidesPerView: 1,
                 },
@@ -751,7 +746,7 @@ function initTowhub() {
 			$(this).on('change', function () {
 			 $(this).parents(".photoUpload").find('.photoUpload-files').text($(this)[i].files[i].name);
 			});
-    });	
+    });
     $(".eye").on("click touchstart", function () {
         var epi = $(this).parent(".pass-input-wrap").find("input");
         if (epi.attr("type") === "password") {

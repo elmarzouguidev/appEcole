@@ -22,4 +22,8 @@ class Center extends Model
     public function langues(){
         return $this->belongsToMany('App\Models\Langue', 'langue_center','center_id','langue_id');
     }
+
+    public function niveaux(){
+        return $this->belongsToMany('App\Models\Niveau', 'center_niveau','center_id','niveau_id');
+    }
 }

@@ -18,4 +18,17 @@ class Area extends Model
     {
         return $this->hasMany('App\Models\Ecole');
     }
+    public function soutiens()
+    {
+        return $this->hasMany('App\Models\Soutien');
+    }
+
+    public function centers()
+    {
+        return $this->hasMany('App\Models\Center');
+    }
+    public function libraries()
+    {
+        return $this->hasMany('App\Models\Librairie');
+    }
 }

@@ -4,13 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Traits\Spatial;
-
+use TCG\Voyager\Traits\Resizable;
 class Ecole extends Model
 {
 
-    use Spatial;
+    use Spatial,Resizable;
 
     protected $spatial = ['positions'];
+
+    protected $hidden = [
+        'ville_id', 'area_id',
+    ];
 
     public function ville(){
         return $this->belongsTo('App\Models\Ville');
@@ -26,5 +30,11 @@ class Ecole extends Model
 
     public function filieres(){
         return $this->belongsToMany('App\Models\Filiere', 'filiere_ecole','ecole_id','filiere_id');
+    }
+
+
+    public function scopeTop($query)
+    {
+        return $query->where('isTop',true)->get();
     }
 }

@@ -17,6 +17,8 @@
         "key-value-json": "^0.1.0@beta",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
+        "laravel/ui": "^2.1",
+        "spatie/laravel-query-builder": "^2.8",
         "tcg/voyager": "^1.4"
     },
     "require-dev": {

@@ -158,7 +158,7 @@ section.main-dashboard-sec {
 }
 .dhs-controls div:hover {
 	color:#fff;
-} 
+}
 .dashboard-header-stats-item {
 	float:left;
 	margin-right:12px;
@@ -229,7 +229,7 @@ section.main-dashboard-sec {
 .user-profile-menu-wrap {
 	padding:15px 0;
 }
- 
+
 .user-profile-menu {
 	padding-bottom:10px;
 	float:left;
@@ -317,7 +317,7 @@ section.main-dashboard-sec {
 	outline:none;
 	cursor:pointer;
 	font-size:12px;
-	font-weight:500;	
+	font-weight:500;
 }
 .logout_btn i {
 	margin-left:12px;
@@ -547,7 +547,7 @@ section.main-dashboard-sec {
 	color:#fff;
 	float:left;
 	position:relative;
- 
+
 	border-radius:100%;
 	margin:0 4px;
 }
@@ -589,7 +589,7 @@ section.main-dashboard-sec {
 .chat-message:last-child {
 	margin-bottom:0;
 }
- 
+
 .message-input {
 	float:left;
 	width:100%;
@@ -707,7 +707,7 @@ section.main-dashboard-sec {
 	bottom:0;
 	left:-30px;
 	background:#ECF6F8;
- 
+
 }
 .chat-contacts-item.chat-contacts-item_active:after , .chat-contacts-item:hover:after {
 	height:100%;
@@ -763,7 +763,7 @@ section.main-dashboard-sec {
 .chat-wrapper{
 	background:#fff;
 	border-radius:0 0 10px 10px;
- 
+
 }
 .cmun_sm {
 	top:50px;
@@ -862,7 +862,7 @@ section.main-dashboard-sec {
 .tfp-det {
 	right:inherit;
 	left:0;
- 
+
 }
 .tfp-det.vis_tfp-det {
 	margin-top:-20px;

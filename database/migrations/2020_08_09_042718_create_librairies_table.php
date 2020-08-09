@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEcolesTable extends Migration
+class CreateLibrairiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEcolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ecoles', function (Blueprint $table) {
+        Schema::create('librairies', function (Blueprint $table) {
             $table->id();
             $table->string('name',50)->unique();
             $table->string('slug',60)->unique();
@@ -22,20 +22,18 @@ class CreateEcolesTable extends Migration
             $table->longText('description')->nullable();
             $table->string('addresse');
             $table->string('tele')->unique();
-            $table->string('email')->unique()->index('ecole_Emails');
+            $table->string('email')->unique()->index('Emails');
             $table->string('website')->nullable()->unique();
+            $table->string('whatsapp')->nullable()->unique();
             $table->geometry('positions')->nullable();
             $table->text('extras')->nullable();
-          //  $table->double('address_latitude')->unique()->nullable();
-          //  $table->double('address_longitude')->unique()->nullable();
-            $table->enum('transport', ['avec', 'sans']);
-            $table->enum('garde', ['avec', 'sans']);
-            $table->enum('cantine', ['avec', 'sans']);
+
+            $table->enum('livraison', ['avec', 'sans']);
+            $table->enum('type', ['Bilingue', 'mission']);
+
             $table->tinyInteger('active')->default(true);
             $table->foreignId('ville_id')->references('id')->on('villes');
             $table->foreignId('area_id')->references('id')->on('areas');
-            $table->boolean('isTop')->default(false);
-
             $table->timestamps();
         });
     }
@@ -47,6 +45,6 @@ class CreateEcolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ecoles');
+        Schema::dropIfExists('librairies');
     }
 }

@@ -11,6 +11,16 @@ class Soutien extends Model
 
     protected $spatial = ['positions'];
 
+
+    public function ville(){
+        return $this->belongsTo('App\Models\Ville');
+    }
+
+    public function area(){
+        return $this->belongsTo('App\Models\Area');
+    }
+
+
     public function niveaux(){
         return $this->belongsToMany('App\Models\Niveau', 'niveau_soutien','soutien_id','niveau_id');
     }

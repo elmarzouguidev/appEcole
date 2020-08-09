@@ -15,4 +15,8 @@ class Niveau extends Model
     public function soutiens(){
         return $this->belongsToMany('App\Models\Soutien', 'niveau_soutien','niveau_id','soutien_id');
     }
+
+    public function centers(){
+        return $this->belongsToMany('App\Models\Center', 'center_niveau','niveau_id','center_id');
+    }
 }

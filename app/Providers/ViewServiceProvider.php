@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Area;
+use App\Models\Ville;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use TCG\Voyager\Models\Page;
@@ -24,8 +26,9 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['Home.section-b-about','About.*'], function ($view) {
-            $view->with('about', Page::whereSlug('about-us')->whereStatus('ACTIVE')->firstOrFail());
+        View::composer(['front.ecole.*'], function ($view) {
+            $view->with('areas', Area::all())
+                 ->with('villes',Ville::all());
         });
     }
 }

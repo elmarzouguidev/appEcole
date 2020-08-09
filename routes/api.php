@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('app-ecoles',['uses'=>'API\EcoleController@index','as'=>'api.ecoles']);
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ecole;
+use App\Models\Librairie;
 use Illuminate\Http\Request;
 
-class EcoleController extends Controller
+class LibrairieController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $ecoles = Ecole::paginate(6);
-        return view('front.ecole.index',compact('ecoles'));
+        //
     }
 
     /**
@@ -38,10 +41,10 @@ class EcoleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Ecole  $ecole
+     * @param  \App\Models\Librairie  $librairie
      * @return \Illuminate\Http\Response
      */
-    public function show(Ecole $ecole)
+    public function show(Librairie $librairie)
     {
         //
     }
@@ -49,10 +52,10 @@ class EcoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Ecole  $ecole
+     * @param  \App\Models\Librairie  $librairie
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ecole $ecole)
+    public function edit(Librairie $librairie)
     {
         //
     }
@@ -61,10 +64,10 @@ class EcoleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ecole  $ecole
+     * @param  \App\Models\Librairie  $librairie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ecole $ecole)
+    public function update(Request $request, Librairie $librairie)
     {
         //
     }
@@ -72,10 +75,10 @@ class EcoleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Ecole  $ecole
+     * @param  \App\Models\Librairie  $librairie
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ecole $ecole)
+    public function destroy(Librairie $librairie)
     {
         //
     }
