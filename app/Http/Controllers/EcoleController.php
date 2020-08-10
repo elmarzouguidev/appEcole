@@ -11,9 +11,9 @@ class EcoleController extends Controller
 
     public function index()
     {
-        $ecoles = QueryBuilder::for(Ecole::with(['ville','area']))
+        $ecoles = QueryBuilder::for(Ecole::class)
 
-            ->allowedFilters(['ville'])
+            ->allowedFilters(['ville_name','area'])
            // ->allowedIncludes('ville')
             ->get();
 

@@ -22,6 +22,7 @@ class CreateEcolesTable extends Migration
             $table->longText('description')->nullable();
             $table->string('addresse');
             $table->string('ville_name')->nullable();
+            $table->string('area')->nullable();
             $table->string('tele')->unique();
             $table->string('email')->unique()->index('ecole_Emails');
             $table->string('website')->nullable()->unique();

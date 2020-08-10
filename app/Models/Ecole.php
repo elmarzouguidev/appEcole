@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+
 use TCG\Voyager\Traits\Spatial;
 use TCG\Voyager\Traits\Resizable;
 class Ecole extends Model
@@ -15,6 +16,8 @@ class Ecole extends Model
     protected $hidden = [
          'area_id',
     ];
+
+   // protected $visible = ['area'];
 
 
     public function ville(){
@@ -33,18 +36,39 @@ class Ecole extends Model
         return $this->belongsToMany('App\Models\Filiere', 'filiere_ecole','ecole_id','filiere_id');
     }
 
-    /******Scop function *
+    /**
      * @param $query
-     * @return
+     * @return mixed
      */
     public function scopeTop($query)
     {
         return $query->where('isTop',true)->get();
     }
-    public function setVilleNameAttribute()
+
+    public function getArea():string
     {
-        $this->attributes['ville_name'] = $this->ville()->first('name');
+       return $this->area()->first('slug')->getAttribute('slug');
     }
 
+    public function getVille()
+    {
+       return $this->ville()->first('slug')->getAttribute('slug');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // auto-sets values on creation
+        static::creating(function ($query) {
+            $query->area = $query->getArea();
+            $query->ville_name = $query->getVille();
+        });
+        // auto-sets values on update
+        static::updating(function ($query) {
+            $query->area = $query->getArea();
+            $query->ville_name = $query->getVille();
+        });
+    }
 
 }

@@ -47,7 +47,7 @@
                                                     <span class="price-level-item" data-pricerating="2"></span>
                                                     <span class="price-name-tooltip">Pricey</span>
                                                 </div>
-                                                <div class="post-author"><a href="#"><img src="{{Voyager::image($ecole->logo)}}" alt=""><span>{{$ecole->area->name}}</span></a></div>
+                                                <div class="post-author"><a href="#"><img src="{{Voyager::image($ecole->logo)}}" alt=""><span>{{$ecole->area}}</span></a></div>
                                             </div>
                                         </div>
                                     </div>

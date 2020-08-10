@@ -10,5 +10,7 @@
 <link type="text/css" rel="stylesheet" href="{{asset('css/plugins.css')}}">
 <link type="text/css" rel="stylesheet" href="{{asset('css/style.css')}}">
 <link type="text/css" rel="stylesheet" href="{{asset('css/color.css')}}">
+
+@livewireStyles
 <!--=============== favicons ===============-->
 <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}">

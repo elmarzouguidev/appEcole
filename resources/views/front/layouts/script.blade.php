@@ -5,4 +5,6 @@
 <script src="{{asset('js/map-plugins.js')}}"></script>
 
 @yield('scripts')
+
+@livewireScripts
 <!-- skip.minification -->
