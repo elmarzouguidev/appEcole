@@ -13,4 +13,10 @@
 @section('scripts')
     <script  src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script  src="{{asset('js/map-listing.js')}}"></script>
+
+    <script>
+        function getData(){
+
+        }
+    </script>
 @endsection

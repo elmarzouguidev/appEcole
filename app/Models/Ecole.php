@@ -13,8 +13,9 @@ class Ecole extends Model
     protected $spatial = ['positions'];
 
     protected $hidden = [
-        'ville_id', 'area_id',
+         'area_id',
     ];
+
 
     public function ville(){
         return $this->belongsTo('App\Models\Ville');
@@ -32,9 +33,18 @@ class Ecole extends Model
         return $this->belongsToMany('App\Models\Filiere', 'filiere_ecole','ecole_id','filiere_id');
     }
 
-
+    /******Scop function *
+     * @param $query
+     * @return
+     */
     public function scopeTop($query)
     {
         return $query->where('isTop',true)->get();
     }
+    public function setVilleNameAttribute()
+    {
+        $this->attributes['ville_name'] = $this->ville()->first('name');
+    }
+
+
 }

@@ -32,7 +32,7 @@
         ];*/
 	    //   Map Infoboxes end ------------------
         var map = new google.maps.Map(document.getElementById('map-main'), {
-            zoom: 10,
+            zoom: 12,
             scrollwheel: false,
             center: new google.maps.LatLng(33.5731104, -7.589843399999999),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -148,7 +148,7 @@
         $('.map-item').on("click", function (e) {
             //console.log('yes its me');
             e.preventDefault();
-            map.setZoom(15);
+            map.setZoom(12);
             var index = currentInfobox;
             var marker_index = parseInt($(this).attr('href').split('#')[1], 10);
             console.log(marker_index)

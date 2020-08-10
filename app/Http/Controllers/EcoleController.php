@@ -4,13 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Ecole;
 use Illuminate\Http\Request;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class EcoleController extends Controller
 {
 
     public function index()
     {
-        $ecoles = Ecole::paginate(6);
+        $ecoles = QueryBuilder::for(Ecole::with(['ville','area']))
+
+            ->allowedFilters(['ville'])
+           // ->allowedIncludes('ville')
+            ->get();
+
         return view('front.ecole.index',compact('ecoles'));
     }
 

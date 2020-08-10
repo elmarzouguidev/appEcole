@@ -21,6 +21,7 @@ class CreateEcolesTable extends Migration
             $table->string('image')->nullable();
             $table->longText('description')->nullable();
             $table->string('addresse');
+            $table->string('ville_name')->nullable();
             $table->string('tele')->unique();
             $table->string('email')->unique()->index('ecole_Emails');
             $table->string('website')->nullable()->unique();
@@ -28,6 +29,7 @@ class CreateEcolesTable extends Migration
             $table->text('extras')->nullable();
           //  $table->double('address_latitude')->unique()->nullable();
           //  $table->double('address_longitude')->unique()->nullable();
+            $table->enum('type', ['bilingue', 'mission']);
             $table->enum('transport', ['avec', 'sans']);
             $table->enum('garde', ['avec', 'sans']);
             $table->enum('cantine', ['avec', 'sans']);
