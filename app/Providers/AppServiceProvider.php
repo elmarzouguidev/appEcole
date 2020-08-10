@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\FormFields\StripePlansFormField;
 use Illuminate\Support\ServiceProvider;
+use Spatie\QueryBuilder\QueryBuilderRequest;
 use TCG\Voyager\Facades\Voyager;
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+      //  QueryBuilderRequest::setArrayValueDelimiter(',');
     }
 }

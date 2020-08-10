@@ -1,7 +1,16 @@
 <div class="container">
     <!-- listing-item  -->
-    @foreach($ecoles as $ecole)
 
+    @foreach($ecoles as $ecole)
+         <ul>
+
+           {{--$ecole->getNiveaux()--}}
+             @foreach($ecole->getNiveaux() as $nv)
+                 <ul>
+                     <li>{{$nv}}</li>
+                 </ul>
+             @endforeach
+         </ul>
         <div class="listing-item">
             <article class="geodir-category-listing fl-wrap">
                 <div class="geodir-category-img">

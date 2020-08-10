@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Spatie\QueryBuilder\Exceptions\InvalidFilterQuery;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -56,6 +57,11 @@ class Handler extends ExceptionHandler
                 'data' => 'Resource not found'
             ], 404);
         }*/
+         if ($exception instanceof InvalidFilterQuery) {
+                   return response()->json([
+                       'data' => 'Resource not found'
+                   ], 404);
+         }
 
         return parent::render($request, $exception);
     }

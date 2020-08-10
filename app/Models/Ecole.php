@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Arr;
 use TCG\Voyager\Traits\Spatial;
 use TCG\Voyager\Traits\Resizable;
 class Ecole extends Model
@@ -13,12 +13,13 @@ class Ecole extends Model
 
     protected $spatial = ['positions'];
 
-    protected $hidden = [
-         'area_id',
-    ];
+    protected $hidden = ['pivot'];
 
    // protected $visible = ['area'];
 
+    protected $casts = [
+        //'all_niveaux' => 'json',
+    ];
 
     public function ville(){
         return $this->belongsTo('App\Models\Ville');
@@ -50,11 +51,24 @@ class Ecole extends Model
        return $this->area()->first('slug')->getAttribute('slug');
     }
 
-    public function getVille()
+    public function getVille():string
     {
        return $this->ville()->first('slug')->getAttribute('slug');
     }
 
+    public function getNiveaux(){
+        return $this->niveaux()
+            ->wherePivot('ecole_id','=',$this->id)
+            ->select('slug')
+            ->pluck('slug');
+            //->get();
+
+
+    }
+   /* public function getAllNiveauxAttribute(){
+
+        return explode(',',$this->attributes['all_niveaux']);
+    }*/
     protected static function boot()
     {
         parent::boot();
@@ -63,11 +77,13 @@ class Ecole extends Model
         static::creating(function ($query) {
             $query->area = $query->getArea();
             $query->ville_name = $query->getVille();
+            $query->all_niveaux = $query->getNiveaux();
         });
         // auto-sets values on update
         static::updating(function ($query) {
             $query->area = $query->getArea();
             $query->ville_name = $query->getVille();
+            $query->all_niveaux = $query->getNiveaux();
         });
     }
 

@@ -2,27 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ecole;
+use App\Review;
 use Illuminate\Http\Request;
-use Spatie\QueryBuilder\AllowedFilter;
-use Spatie\QueryBuilder\QueryBuilder;
 
-class EcoleController extends Controller
+class ReviewController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $ecoles = QueryBuilder::for(Ecole::class)
-
-            ->allowedFilters([
-                'ville_name','area',
-                AllowedFilter::exact('niveaux', 'all_niveaux')
-            ])
-           // ->toSql();
-
-           ->get();
-
-        return view('front.ecole.index',compact('ecoles'));
+        //
     }
 
     /**
@@ -49,10 +41,10 @@ class EcoleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Ecole  $ecole
+     * @param  \App\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function show(Ecole $ecole)
+    public function show(Review $review)
     {
         //
     }
@@ -60,10 +52,10 @@ class EcoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Ecole  $ecole
+     * @param  \App\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ecole $ecole)
+    public function edit(Review $review)
     {
         //
     }
@@ -72,10 +64,10 @@ class EcoleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ecole  $ecole
+     * @param  \App\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ecole $ecole)
+    public function update(Request $request, Review $review)
     {
         //
     }
@@ -83,10 +75,10 @@ class EcoleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Ecole  $ecole
+     * @param  \App\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ecole $ecole)
+    public function destroy(Review $review)
     {
         //
     }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Niveau extends Model
 {
     //
+    protected $hidden = ['pivot'];
 
     public function ecoles(){
         return $this->belongsToMany('App\Models\Ecole', 'niveau_ecole','niveau_id','ecole_id');
