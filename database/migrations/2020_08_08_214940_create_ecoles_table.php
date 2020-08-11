@@ -35,6 +35,7 @@ class CreateEcolesTable extends Migration
             $table->enum('transport', ['avec', 'sans']);
             $table->enum('garde', ['avec', 'sans']);
             $table->enum('cantine', ['avec', 'sans']);
+            $table->string('promo_video')->nullable()->unique();
             $table->tinyInteger('active')->default(true);
             $table->foreignId('ville_id')->references('id')->on('villes');
             $table->foreignId('area_id')->references('id')->on('areas');

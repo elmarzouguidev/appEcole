@@ -18,6 +18,7 @@ class CreateFacilitiesTable extends Migration
             $table->string('name')->unique();
             $table->string('slug')->unique();
             $table->string('icon_code')->nullable();
+            $table->string('description')->nullable();
             $table->boolean('active')->default(true);
             $table->timestamps();
         });

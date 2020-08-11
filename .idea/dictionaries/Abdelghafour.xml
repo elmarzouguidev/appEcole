@@ -3,6 +3,8 @@
     <words>
       <w>addresse</w>
       <w>avec</w>
+      <w>clearfix</w>
+      <w>contentre</w>
       <w>datas</w>
       <w>ecole</w>
       <w>ecoles</w>
@@ -19,10 +21,14 @@
       <w>lycee</w>
       <w>niveau</w>
       <w>niveaux</w>
+      <w>prevposts</w>
+      <w>publié</w>
       <w>soutien</w>
       <w>soutiens</w>
       <w>tele</w>
       <w>villes</w>
+      <w>visitez</w>
+      <w>votre</w>
     </words>
   </dictionary>
 </component>

@@ -1094,7 +1094,7 @@ function initTowhub() {
         });
     }
 // open hours -----------------
-    if ($(".opening-hours").length > 0) {
+   /* if ($(".opening-hours").length > 0) {
         var d = new Date();
         var weekday = new Array(7);
         weekday[0] = "sun";
@@ -1105,7 +1105,7 @@ function initTowhub() {
         weekday[5] = "fri";
         weekday[6] = "sat";
         document.getElementsByClassName(weekday[d.getDay()])[0].classList.add("todaysDay");
-    }
+    }*/
 // qty -----------------
     $('.quantity-item').each(function () {
         var spinner = $(this),

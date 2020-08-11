@@ -4,18 +4,20 @@
             <div class="row">
                 <!-- listsearch-input-item-->
 
+                {{--
                 <div class="col-md-4">
-                    <div class="listsearch-input-item">
-                        <span class="iconn-dec"><i class="far fa-bookmark"></i></span>
-                        <input type="text" placeholder="What are you looking for ?" value=""/>
-                    </div>
-                </div>
+                      <div class="listsearch-input-item">
+                          <span class="iconn-dec"><i class="far fa-bookmark"></i></span>
+                          <input type="text" placeholder="What are you looking for ?" value=""/>
+                      </div>
+                  </div>
+                  --}}
 
                 {{--    @livewire('search')--}}
 
                 <div class="col-md-4">
                     <div class="listsearch-input-item">
-                        <select name="filter[ville_name]" data-placeholder="ville/Location" class="chosen-select no-search-select" >
+                        <select name="getData[LaVille]" data-placeholder="ville/Location" class="chosen-select no-search-select" >
                             <option value="">Villes</option>
                             @foreach($villes as $ville)
                                 <option value="{{$ville->slug}}">{{$ville->name}}</option>
@@ -26,7 +28,7 @@
 
                 <div class="col-md-4">
                     <div class="listsearch-input-item">
-                        <select name="filter[area]" data-placeholder="Location" class="chosen-select no-search-select" >
+                        <select name="getData[Arrondissement]" data-placeholder="Location" class="chosen-select no-search-select" >
                             <option value="">Arrondissement</option>
                             @foreach($areas as $area)
                                 <option value="{{$area->slug}}">{{$area->name}}</option>
@@ -34,7 +36,15 @@
                         </select>
                     </div>
                 </div>
-
+                <div class="col-md-4">
+                    <div class="listsearch-input-item">
+                        <select name="getData[type]" data-placeholder="Location" class="chosen-select no-search-select" >
+                            <option value="">Type</option>
+                            <option value="bilingue">Bilingue</option>
+                            <option value="mission">Mission</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="col-md-9">
                     <div class="listsearch-input-wrap-header fl-wrap"><i class="fal fa-tasks"></i>Niveau</div>
 
@@ -44,7 +54,7 @@
 
                                 @foreach($niveaux as $niveau)
                                     <li>
-                                        <input id="check-d" type="checkbox" name="filter[niveaux][]" value="{{$niveau->slug}}">
+                                        <input id="check-d" type="checkbox" name="getData[niveaux][]" value="{{$niveau->slug}}">
                                         <label for="check-d">{{$niveau->name}}</label>
                                     </li>
                                 @endforeach
@@ -54,14 +64,16 @@
                     </div>
                 </div>
 
-                <div class="col-md-9">
-                    <div class="listsearch-input-item location autocomplete-container">
-                        <span class="iconn-dec"><i class="far fa-map-marker"></i></span>
-                        <input type="text" placeholder="Where to look?" class="autocomplete-input" id="autocompleteid3" value=""/>
-                        <a href="#"><i class="fal fa-location"></i></a>
-                    </div>
-                </div>
-                <!-- listsearch-input-item end-->
+            {{--
+            <div class="col-md-9">
+                  <div class="listsearch-input-item location autocomplete-container">
+                      <span class="iconn-dec"><i class="far fa-map-marker"></i></span>
+                      <input type="text" placeholder="Where to look?" class="autocomplete-input" id="autocompleteid3" value=""/>
+                      <a href="#"><i class="fal fa-location"></i></a>
+                  </div>
+              </div>
+              --}}
+            <!-- listsearch-input-item end-->
                 <!-- listsearch-input-item-->
                 <div class="col-md-3">
                     <div class="listsearch-input-item">
@@ -72,13 +84,14 @@
                           --}}
 
                         <button class="header-search-button color-bg" type="submit">
-                            <i class="far fa-search"></i><span>Search</span>
+                            <i class="far fa-search"></i><span>Filter</span>
                         </button>
                     </div>
                 </div>
-                <!-- listsearch-input-item end-->
+                <!-- HayMacProduction-->
             </div>
-            <!-- hidden-listing-filter -->
+
+            {{--
             <div class="hidden-listing-filter fl-wrap">
                 <div class="listsearch-input-wrap-header fl-wrap"><i class="fal fa-tasks"></i>More Filters</div>
                 <div class="fl-wrap mar-btoom">
@@ -151,9 +164,14 @@
                 </div>
                 <!-- listsearch-input-item end-->
             </div>
-            <!-- hidden-listing-filter end -->
+            --}}
+
             <div class="more-filter-option-wrap">
-                <div class="more-filter-option-btn act-hiddenpanel"><i class="far fa-plus"></i> <span>More Options</span></div>
+                {{--
+                <div class="more-filter-option-btn act-hiddenpanel">
+                    <i class="far fa-plus"></i> <span>More Options</span>
+                </div>
+                 --}}
                 <div class="clear-filter-btn color"><i class="far fa-redo"></i> Reset Filters</div>
             </div>
         </div>

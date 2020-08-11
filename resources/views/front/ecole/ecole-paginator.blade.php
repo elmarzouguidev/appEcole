@@ -52,16 +52,16 @@
              </li>--}}
 
             <a href="{{ $paginator->nextPageUrl() }}" class="nextposts-link" rel="next" aria-label="@lang('pagination.next')">
-
+                <span>Next</span>
                 <i class="fas fa-caret-right"></i>
             </a>
         @else
             {{-- <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
                  <span class="page-link" aria-hidden="true">&rsaquo;</span>
              </li>--}}
-            <a href="" class="disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
-
-                <i class="fas fa-caret-right" aria-hidden="true"></i>
+            <a href="" class="nextposts-link" aria-disabled="true" aria-label="@lang('pagination.next')">
+                <span aria-hidden="true">&rsaquo;</span>
+                <i class="fas fa-caret-right"></i>
             </a>
         @endif
     </div>

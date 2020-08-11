@@ -39,9 +39,13 @@ class Ecole extends Model
 
     public function facilities(){
         return $this->belongsToMany('App\Models\Facilitie', 'facilitie_ecole','ecole_id','facilitie_id');
+           // ->where('active',true)->get();
 
     }
 
+    public function reviews(){
+        return $this->hasMany('App\Models\Review')->where('approved',true);
+    }
     /**
      * @param $query
      * @return mixed
@@ -89,5 +93,10 @@ class Ecole extends Model
             $query->all_niveaux = $query->getNiveaux();
         });
     }
+
+   /* public function scopeEnabled()
+    {
+        return Facilitie::where('active',true)->first();
+    }*/
 
 }

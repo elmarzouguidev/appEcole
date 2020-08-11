@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReviewRequest;
+use App\Http\Requests\SingleEcoleRequest;
 use App\Models\Ecole;
 use App\Models\Niveau;
 use Illuminate\Http\Request;
@@ -18,13 +20,54 @@ class EcoleController extends Controller
         $ecoles = QueryBuilder::for(Ecole::class)
 
             ->allowedFilters([
-                'ville_name','area',
-                AllowedFilter::exact('niveaux', 'all_niveaux')
+                'area','type',
+                AllowedFilter::exact('niveaux', 'all_niveaux'),
+                AllowedFilter::exact('LaVille', 'ville_name'),
+                AllowedFilter::exact('Arrondissement', 'area')
             ])
-
+            // ->paginate(2)
+            // ->appends(request()->query());
             ->get();
 
         return view('front.ecole.index',compact('ecoles'));
+    }
+
+    public function singleEcole(Request $request, $slug){
+
+        $ecole = Ecole::whereSlug($slug)->firstOrFail();
+
+        return view('front.ecole.single.index',compact('ecole'));
+    }
+
+    public function saveReview(Request $request){
+
+        if($request->has('emailEcole') && $request->emailEcole ==='emailOk')
+        {
+            return redirect()->route('home');
+        }
+
+        if($request->has('reviewEcole') && $request->reviewEcole ==='reviewOk')
+        {
+            $request->validate([
+                'name'=>'required|string',
+                'email'=>'required|email',
+                'avis'=>'required|string',
+                'score'=>'required|string',
+                'appEcole'=>'required|integer'
+            ]);
+            $ecole = Ecole::find($request->appEcole);
+
+            $ecole->reviews()->create([
+
+                'name'=>$request->name,
+                'email'=>$request->email,
+                'content'=>$request->avis,
+                'score'=>$request->score,
+                'ecole_id'=>$request->appEcole
+            ]);
+            return redirect()->back();
+        }
+
     }
 
     protected function searchNiveau($keyword, $arrayToSearch){
@@ -36,69 +79,5 @@ class EcoleController extends Controller
         }
 
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Ecole  $ecole
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Ecole $ecole)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Ecole  $ecole
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Ecole $ecole)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ecole  $ecole
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Ecole $ecole)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Ecole  $ecole
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Ecole $ecole)
-    {
-        //
-    }
 }

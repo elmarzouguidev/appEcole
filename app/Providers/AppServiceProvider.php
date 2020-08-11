@@ -6,6 +6,9 @@ use App\FormFields\StripePlansFormField;
 use Illuminate\Support\ServiceProvider;
 use Spatie\QueryBuilder\QueryBuilderRequest;
 use TCG\Voyager\Facades\Voyager;
+
+use Illuminate\Pagination\Paginator;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -29,5 +32,9 @@ class AppServiceProvider extends ServiceProvider
     {
         //
       //  QueryBuilderRequest::setArrayValueDelimiter(',');
+
+      //  Paginator::defaultView('ecole-paginator');
+
+        //Paginator::defaultSimpleView('ecole-paginator');
     }
 }

@@ -1,24 +1,24 @@
 <div class="container">
-    <!-- listing-item  -->
+    <!-- listing-ECOLES  -->
 
     @foreach($ecoles as $ecole)
-         <ul>
+        <ul>
 
-           {{--$ecole->getNiveaux()
-             @foreach($ecole->getNiveaux() as $nv)
-                 <ul>
-                     <li>{{$nv}}</li>
-                 </ul>
-             @endforeach--}}
-         </ul>
+            {{--$ecole->getNiveaux()
+              @foreach($ecole->getNiveaux() as $nv)
+                  <ul>
+                      <li>{{$nv}}</li>
+                  </ul>
+              @endforeach--}}
+        </ul>
         <div class="listing-item">
             <article class="geodir-category-listing fl-wrap">
                 <div class="geodir-category-img">
                     <div class="geodir-js-favorite_btn"><i class="fal fa-heart"></i><span>Save</span></div>
-                    <a href="listing-single.html" class="geodir-category-img-wrap fl-wrap">
+                    <a href="{{route('ecoles.single',$ecole->slug)}}" class="geodir-category-img-wrap fl-wrap">
                         <img src="{{Voyager::image($ecole->image)}}" alt="{{$ecole->name}}">
                     </a>
-                    <div class="listing-avatar"><a href="author-single.html"><img src="{{Voyager::image($ecole->logo)}}" alt="{{$ecole->name}}"></a>
+                    <div class="listing-avatar"><a href=""><img src="{{Voyager::image($ecole->logo)}}" alt="{{$ecole->name}}"></a>
                         <span class="avatar-tooltip">Added By  <strong>Alisa Noory</strong></span>
                     </div>
                     <div class="geodir_status_date gsd_open"><i class="fal fa-lock-open"></i>Open Now</div>
@@ -34,7 +34,7 @@
                 <div class="geodir-category-content fl-wrap">
                     <div class="geodir-category-content-title fl-wrap">
                         <div class="geodir-category-content-title-item">
-                            <h3 class="title-sin_map"><a href="listing-single.html">{{$ecole->name}}</a><span class="verified-badge"><i class="fal fa-check"></i></span></h3>
+                            <h3 class="title-sin_map"><a href="{{route('ecoles.single',$ecole->slug)}}">{{$ecole->name}}</a><span class="verified-badge"><i class="fal fa-check"></i></span></h3>
                             <div class="geodir-category-location fl-wrap">
                                 <a href="#{{$loop->index+1}}" class="map-item">
                                     <i class="fas fa-map-marker-alt"></i> {{$ecole->addresse}}
@@ -42,22 +42,30 @@
                             </div>
                         </div>
                     </div>
+                    {{--@if($ecole->facilities()->count())--}}
                     <div class="geodir-category-text fl-wrap">
                         <p class="small-text">{{$ecole->name}}</p>
                         <div class="facilities-list fl-wrap">
                             <div class="facilities-list-title">Facilities : </div>
                             <ul class="no-list-style">
-                                <li class="tolt"  data-microtip-position="top" data-tooltip="Free WiFi"><i class="fal fa-wifi"></i></li>
-                                <li class="tolt"  data-microtip-position="top" data-tooltip="Parking"><i class="fal fa-parking"></i></li>
-                                <li class="tolt"  data-microtip-position="top" data-tooltip="Non-smoking Rooms"><i class="fal fa-smoking-ban"></i></li>
-                                <li class="tolt"  data-microtip-position="top" data-tooltip="Pets Friendly"><i class="fal fa-dog-leashed"></i></li>
+                                @if($ecole->facilities()->count())
+                                    @foreach($ecole->facilities as $fac)
+                                        <li class="tolt"  data-microtip-position="top" data-tooltip="{{$fac->description}}"><i class="fal {{$fac->icon_code}}"></i></li>
+                                    @endforeach
+
+                                @else
+                                    <li class="tolt"  data-microtip-position="top"><i class="fal fa-ban"></i></li>
+                                @endif
                             </ul>
                         </div>
                     </div>
+                    {{-- @endif--}}
+
                     <div class="geodir-category-footer fl-wrap">
                         <a class="listing-item-category-wrap">
-                            <div class="listing-item-category red-bg"><i class="fal fa-cheeseburger"></i></div>
-                            <span>Restaurants</span>
+                            <div class="listing-item-category yellow-bg">
+                                <i class="fal fa-city"></i></div>
+                            <span>{{$ecole->ville_name}}</span>
                         </a>
                         <div class="geodir-opt-list">
                             <ul class="no-list-style">
@@ -84,6 +92,7 @@
             </article>
         </div>
     @endforeach
+    {{--
     <div class="pagination">
         <a href="#" class="prevposts-link"><i class="fas fa-caret-left"></i><span>Prev</span></a>
         <a href="#">1</a>
@@ -93,5 +102,9 @@
         <a href="#">7</a>
         <a href="#" class="nextposts-link"><span>Next</span><i class="fas fa-caret-right"></i></a>
     </div>
+     --}}
+    {{--
+    $ecoles->links()
+   --}}
 
 </div>
