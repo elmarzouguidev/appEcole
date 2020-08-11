@@ -18,7 +18,7 @@ Route::get('/',['uses'=>'SiteController@index','as'=>'home']);
 
 Route::get('/ecoles',['uses'=>'EcoleController@index','as'=>'ecoles']);
 Route::get('/ecoles/{slug}',['uses'=>'EcoleController@singleEcole','as'=>'ecoles.single']);
-Route::post('/ecoles/{slug}',['uses'=>'EcoleController@saveReview','as'=>'ecoles.actions.post']);
+Route::post('/ecoles/{slug}',['uses'=>'EcoleController@ecoleAction','as'=>'ecoles.actions.post']);
 
 Route::get('/centre-de-langues',['uses'=>'CenterController@index','as'=>'centres']);
 

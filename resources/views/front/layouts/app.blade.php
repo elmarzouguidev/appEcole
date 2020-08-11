@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <!--=============== HayMacProduction  ===============-->
+
  @include('front.layouts.head')
 </head>
 <body>

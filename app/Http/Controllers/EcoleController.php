@@ -39,7 +39,7 @@ class EcoleController extends Controller
         return view('front.ecole.single.index',compact('ecole'));
     }
 
-    public function saveReview(Request $request){
+    public function ecoleAction(Request $request){
 
         if($request->has('emailEcole') && $request->emailEcole ==='emailOk')
         {
