@@ -44,7 +44,7 @@
 
                                 @foreach($niveaux as $niveau)
                                     <li>
-                                        <input id="check-d" type="checkbox" name="filter[niveaux]" value="{{$niveau->slug}}">
+                                        <input id="check-d" type="checkbox" name="filter[niveaux][]" value="{{$niveau->slug}}">
                                         <label for="check-d">{{$niveau->name}}</label>
                                     </li>
                                 @endforeach

@@ -2,40 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ecole;
-use App\Models\Niveau;
+use App\Facilitie;
 use Illuminate\Http\Request;
-use Spatie\QueryBuilder\AllowedFilter;
-use Spatie\QueryBuilder\QueryBuilder;
 
-class EcoleController extends Controller
+class FacilitieController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        // $niveaux = Niveau::select('slug')->pluck('slug');
-        // dd($niveaux);
-        $ecoles = QueryBuilder::for(Ecole::class)
-
-            ->allowedFilters([
-                'ville_name','area',
-                AllowedFilter::exact('niveaux', 'all_niveaux')
-            ])
-
-            ->get();
-
-        return view('front.ecole.index',compact('ecoles'));
+        //
     }
 
-    protected function searchNiveau($keyword, $arrayToSearch){
-        foreach($arrayToSearch as $key => $arrayItem){
-            if( stristr( $arrayItem, $keyword ) ){
-                return $arrayItem;
-            }
-
-        }
-
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -60,10 +41,10 @@ class EcoleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Ecole  $ecole
+     * @param  \App\Facilitie  $facilitie
      * @return \Illuminate\Http\Response
      */
-    public function show(Ecole $ecole)
+    public function show(Facilitie $facilitie)
     {
         //
     }
@@ -71,10 +52,10 @@ class EcoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Ecole  $ecole
+     * @param  \App\Facilitie  $facilitie
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ecole $ecole)
+    public function edit(Facilitie $facilitie)
     {
         //
     }
@@ -83,10 +64,10 @@ class EcoleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ecole  $ecole
+     * @param  \App\Facilitie  $facilitie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ecole $ecole)
+    public function update(Request $request, Facilitie $facilitie)
     {
         //
     }
@@ -94,10 +75,10 @@ class EcoleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Ecole  $ecole
+     * @param  \App\Facilitie  $facilitie
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ecole $ecole)
+    public function destroy(Facilitie $facilitie)
     {
         //
     }

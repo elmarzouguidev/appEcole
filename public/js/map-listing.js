@@ -24,7 +24,7 @@
              //console.log(ecole.image);
              locations.push([locationData(ecole.slug, ecole.image, ecole.name, ecole.addresse, ecole.area, "5", "12", "open"  ),ecole.lat, ecole.lng, index, ecole.logo])
          });
-         console.log(locations);
+       //  console.log(locations);
        /* var locations = [
 
             [locationData('listing-single2.html', 'images/all/1.jpg', 'Luxary Resaturant', " 27th Brooklyn New York, USA", 'cafe-cat', "5", "12", "open"  ), 40.72956781, -73.99726866, 0 , 'images/all/1.jpg'],
@@ -96,7 +96,7 @@
       for (i = 0; i < locations.length; i++) {
              var labels = '123456789';
 		markerImg = locations[i][4];
-		console.log(markerImg);
+		//console.log(markerImg);
 		markerCount = locations[i][3] + 1;
          // console.log(markerCount);
         var overlaypositions = new google.maps.LatLng(locations[i][1], locations[i][2]),

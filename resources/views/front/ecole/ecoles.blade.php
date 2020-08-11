@@ -4,12 +4,12 @@
     @foreach($ecoles as $ecole)
          <ul>
 
-           {{--$ecole->getNiveaux()--}}
+           {{--$ecole->getNiveaux()
              @foreach($ecole->getNiveaux() as $nv)
                  <ul>
                      <li>{{$nv}}</li>
                  </ul>
-             @endforeach
+             @endforeach--}}
          </ul>
         <div class="listing-item">
             <article class="geodir-category-listing fl-wrap">

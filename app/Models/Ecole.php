@@ -37,6 +37,11 @@ class Ecole extends Model
         return $this->belongsToMany('App\Models\Filiere', 'filiere_ecole','ecole_id','filiere_id');
     }
 
+    public function facilities(){
+        return $this->belongsToMany('App\Models\Facilitie', 'facilitie_ecole','ecole_id','facilitie_id');
+
+    }
+
     /**
      * @param $query
      * @return mixed
@@ -62,12 +67,10 @@ class Ecole extends Model
             ->select('slug')
             ->pluck('slug');
             //->get();
-
-
     }
-   /* public function getAllNiveauxAttribute(){
+    /*public function getAllNiveauxAttribute(){
 
-        return explode(',',$this->attributes['all_niveaux']);
+        return  $this->attributes['all_niveaux'];
     }*/
     protected static function boot()
     {
