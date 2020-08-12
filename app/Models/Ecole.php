@@ -48,7 +48,7 @@ class Ecole extends Model implements Viewable
     }
 
     public function reviews(){
-        return $this->hasMany('App\Models\Review')->where('approved',true);
+        return $this->hasMany('App\Models\Review');
     }
     /**
      * @param $query

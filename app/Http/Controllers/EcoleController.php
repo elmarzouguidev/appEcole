@@ -47,35 +47,34 @@ class EcoleController extends Controller
         return view('front.ecole.single.index',compact('ecole'));
     }
 
-    public function ecoleAction(Request $request){
+    public function tryVue(Request $request){
 
-        if($request->has('emailEcole') && $request->emailEcole ==='emailOk')
-        {
-            return redirect()->route('home');
-        }
+        return response()->json([$request->all()]);
 
-        if($request->has('reviewEcole') && $request->reviewEcole ==='reviewOk')
-        {
-            $request->validate([
-                'name'=>'required|string',
-                'email'=>'required|email',
-                'avis'=>'required|string',
-                'score'=>'required|string',
-                'appEcole'=>'required|integer'
-            ]);
-            $ecole = Ecole::find($request->appEcole);
+    }
 
-            $ecole->reviews()->create([
+    public function storeReview(Request $request){
 
-                'name'=>$request->name,
-                'email'=>$request->email,
-                'content'=>$request->avis,
-                'score'=>$request->score,
-                'ecole_id'=>$request->appEcole
-            ]);
-            return redirect()->back();
-        }
+        $request->validate([
+            'name'=>'required|string',
+            'email'=>'required|email',
+            'avis'=>'required|string',
+            'score'=>'required|string',
+            'appEcole'=>'required|integer'
+        ]);
 
+        $ecole = Ecole::find($request->appEcole);
+
+        $ecole->reviews()->create([
+
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'content'=>$request->avis,
+            'score'=>$request->score,
+            'ecole_id'=>$request->appEcole
+        ]);
+
+        return response()->json(['success'=>'l\'article a bien été modifier']);
     }
 
     protected function searchNiveau($keyword, $arrayToSearch){
