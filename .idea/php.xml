@@ -116,11 +116,6 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/vendor/key-value-json/src" />
-      <path value="$PROJECT_DIR$/vendor/key-value-json/resources" />
-      <path value="$PROJECT_DIR$/vendor/key-value-json/.git" />
-      <path value="$PROJECT_DIR$/vendor/mrclay/minify" />
-      <path value="$PROJECT_DIR$/vendor/htmlmin/htmlmin" />
       <path value="$PROJECT_DIR$/vendor/artesaos/seotools" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-query-builder" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
@@ -129,6 +124,8 @@
       <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
       <path value="$PROJECT_DIR$/vendor/anhskohbo/no-captcha" />
       <path value="$PROJECT_DIR$/vendor/renatomarinho/laravel-page-speed" />
+      <path value="$PROJECT_DIR$/vendor/cyrildewit/eloquent-viewable" />
+      <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use TCG\Voyager\Traits\Spatial;
 use TCG\Voyager\Traits\Resizable;
-class Ecole extends Model
+class Ecole extends Model implements Viewable
 {
 
-    use Spatial,Resizable;
+    use Spatial,Resizable,InteractsWithViews;
 
     protected $spatial = ['positions'];
 
@@ -20,6 +22,8 @@ class Ecole extends Model
     protected $casts = [
         //'all_niveaux' => 'json',
     ];
+    protected $removeViewsOnDelete = true;
+
 
     public function ville(){
         return $this->belongsTo('App\Models\Ville');

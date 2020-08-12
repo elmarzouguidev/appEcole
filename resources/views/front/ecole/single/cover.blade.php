@@ -46,8 +46,19 @@
             <div class="geodir_status_date gsd_open"><i class="fal fa-lock-open"></i>Open Now</div>
             <div class="list-single-stats">
                 <ul class="no-list-style">
-                    <li><span class="viewed-counter"><i class="fas fa-eye"></i> Viewed -  156 </span></li>
-                    <li><span class="bookmark-counter"><i class="fas fa-heart"></i> Bookmark -  24 </span></li>
+                    <li>
+                        <span class="viewed-counter">
+                            <i class="fas fa-eye"></i> Vu -  {{views($ecole)->unique()->count()}}
+                        </span>
+                    </li>
+
+
+                    <li>
+                        <span class="bookmark-counter">
+                            <i class="fas fa-heart"></i> Bookmark -  24
+                        </span>
+                    </li>
+
                 </ul>
             </div>
         </div>

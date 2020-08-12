@@ -5,9 +5,9 @@
             <ul class="no-list-style">
                 <li><a class="act-scrlink" href="#sec1"><i class="fal fa-images"></i> Top</a></li>
                 <li><a href="#sec2"><i class="fal fa-info"></i>Les détails</a></li>
-               {{--<li><a href="#sec3"><i class="fal fa-image"></i>Gallery</a></li>--}}
-                <li><a href="#sec4"><i class="fal fa-utensils"></i>Menu</a></li>
-                <li><a href="#sec5"><i class="fal fa-comments-alt"></i>Reviews</a></li>
+               {{--<li><a href="#sec3"><i class="fal fa-image"></i>Gallery</a></li>
+                <li><a href="#sec4"><i class="fal fa-utensils"></i>Menu</a></li>--}}
+                <li><a href="#sec5"><i class="fal fa-comments-alt"></i>Avis</a></li>
             </ul>
         </nav>
         <div class="scroll-nav-wrapper-opt">

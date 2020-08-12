@@ -19,18 +19,22 @@ class Ecole extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'slug'=>$this->slug,
+            'slug'=>route('ecoles.single',$this->slug),
             'addresse'=>$this->addresse,
             'email' => $this->email,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'ville'=>$this->ville_name,
             'area'=>$this->area,
+            /*************************************/
             'coordinates'=>$this->getCoordinates(),
             'lat'=>$this->getCoordinates()[0]['lat'],
             'lng'=>$this->getCoordinates()[0]['lng'],
+            /*************************************/
             'logo'=>Voyager::image($this->logo),
             'image'=>Voyager::image($this->image),
+            /*************************************/
+            'reviews'=>$this->reviews()->count()
         ];
     }
 }

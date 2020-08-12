@@ -32,9 +32,17 @@ class EcoleController extends Controller
         return view('front.ecole.index',compact('ecoles'));
     }
 
+    /**
+     * @param Request $request
+     * @param $slug
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * For views method : https://github.com/cyrildewit/eloquent-viewable
+     */
     public function singleEcole(Request $request, $slug){
 
         $ecole = Ecole::whereSlug($slug)->firstOrFail();
+
+        views($ecole)->record();
 
         return view('front.ecole.single.index',compact('ecole'));
     }

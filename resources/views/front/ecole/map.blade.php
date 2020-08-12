@@ -1,4 +1,4 @@
-<!-- Map -->
+
 <div class="map-container column-map right-pos-map fix-map hid-mob-map">
     <div id="map-main"></div>
     <ul class="mapnavigation no-list-style">
@@ -9,4 +9,4 @@
     <div class="location-btn geoLocation tolt" data-microtip-position="top-left" data-tooltip="Your location"><span><i class="fal fa-location"></i></span></div>
     <div class="map-close"><i class="fas fa-times"></i></div>
 </div>
-<!-- Map end -->
+

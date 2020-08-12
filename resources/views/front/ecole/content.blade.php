@@ -40,8 +40,8 @@
     <!-- HayMacProduction-->
     <div class="clearfix"></div>
     <div class="container">
-        <div class="mob-nav-content-btn mncb_half color2-bg show-list-wrap-search fl-wrap"><i class="fal fa-filter"></i>  Filters</div>
-        <div class="mob-nav-content-btn mncb_half color2-bg schm  fl-wrap"><i class="fal fa-map-marker-alt"></i>  View on map</div>
+        <div class="mob-nav-content-btn mncb_half color2-bg show-list-wrap-search fl-wrap"><i class="fal fa-filter"></i>  Les filters</div>
+        <div class="mob-nav-content-btn mncb_half color2-bg schm  fl-wrap"><i class="fal fa-map-marker-alt"></i>  Voir sur la carte</div>
     </div>
     <div class="clearfix"></div>
     <!-- HayMacProduction-->
