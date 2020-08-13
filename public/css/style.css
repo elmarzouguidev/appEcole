@@ -30,7 +30,7 @@ blockquote {
 	position:relative;
 }
 blockquote:before {
-	font-family: Font Awesome\ 5 Pro;
+	font-family: "Font Awesome\ 5 Pro";
 	content: "\f10e";
 	position:absolute;
 	color:#ccc;

@@ -1961,6 +1961,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {// console.log('Component mounted.')
   },
@@ -1972,7 +1985,8 @@ __webpack_require__.r(__webpack_exports__);
       score: '5',
       scoreFrom: '',
       appEcole: '',
-      output: ''
+      output: '',
+      errors: []
     };
   },
   methods: {
@@ -1983,21 +1997,45 @@ __webpack_require__.r(__webpack_exports__);
     alertDisplayError: function alertDisplayError() {
       this.$swal("error", 'un problème est survenu lors de l\'ajout', 'error');
     },
+    chekForm: function chekForm() {
+      if (this.name && this.email && this.avis) {
+        return true;
+      }
+
+      this.errors = [];
+
+      if (!this.name) {
+        this.errors.push('le nom est requis .');
+      }
+
+      if (!this.email) {
+        this.errors.push('email adresse est requis .');
+      }
+
+      if (!this.avis) {
+        this.errors.push("l\'avis est requis .");
+      }
+    },
     formSubmit: function formSubmit(e) {
       e.preventDefault();
-      var currentObj = this;
-      axios.post(myUrl, {
-        name: this.name,
-        email: this.email,
-        avis: this.avis,
-        score: this.score,
-        appEcole: ecoleId
-      }).then(function (response) {
-        //currentObj.output = response.data.success;
-        currentObj.alertDisplay(response.data.success);
-      })["catch"](function (error) {
-        currentObj.alertDisplayError();
-      });
+
+      if (this.chekForm()) {
+        var currentObj = this;
+        axios.post(myUrl, {
+          name: this.name,
+          email: this.email,
+          avis: this.avis,
+          score: this.score,
+          appEcole: ecoleId
+        }).then(function (response) {
+          //currentObj.output = response.data.success;
+          currentObj.alertDisplay(response.data.success);
+        })["catch"](function (error) {
+          currentObj.alertDisplayError();
+        });
+      }
+
+      e.target.reset();
     }
   }
 });
@@ -40891,11 +40929,7 @@ var render = function() {
                     expression: "name"
                   }
                 ],
-                attrs: {
-                  type: "text",
-                  placeholder: "Votre nom *",
-                  required: ""
-                },
+                attrs: { type: "text", placeholder: "Votre nom *" },
                 domProps: { value: _vm.name },
                 on: {
                   input: function($event) {
@@ -40922,8 +40956,7 @@ var render = function() {
                 ],
                 attrs: {
                   type: "email",
-                  placeholder: "E-mail Address* non publié",
-                  required: ""
+                  placeholder: "E-mail Address* non publié"
                 },
                 domProps: { value: _vm.email },
                 on: {
@@ -40947,7 +40980,7 @@ var render = function() {
                 expression: "avis"
               }
             ],
-            attrs: { cols: "40", rows: "3", placeholder: "Avis", required: "" },
+            attrs: { cols: "40", rows: "3", placeholder: "Avis" },
             domProps: { value: _vm.avis },
             on: {
               input: function($event) {
@@ -40965,7 +40998,28 @@ var render = function() {
           _vm._v(" "),
           _vm._m(2)
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _vm.errors.length
+        ? _c(
+            "div",
+            { staticClass: "dashboard-list-box mar-dash-list fl-wrap" },
+            _vm._l(_vm.errors, function(error) {
+              return _c("div", { staticClass: "dashboard-list fl-wrap" }, [
+                _c("div", { staticClass: "dashboard-message" }, [
+                  _vm._m(3, true),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "dashboard-message-text" }, [
+                    _c("i", { staticClass: "far fa-check red-bg" }),
+                    _vm._v(" "),
+                    _c("p", [_vm._v(_vm._s(error))])
+                  ])
+                ])
+              ])
+            }),
+            0
+          )
+        : _vm._e()
     ]
   )
 }
@@ -40989,6 +41043,14 @@ var staticRenderFns = [
     return _c("button", { staticClass: "btn color2-bg float-btn" }, [
       _vm._v("\n                envoyer\n                "),
       _c("i", { staticClass: "fal fa-paper-plane" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "new-dashboard-item" }, [
+      _c("i", { staticClass: "fal fa-times" })
     ])
   }
 ]

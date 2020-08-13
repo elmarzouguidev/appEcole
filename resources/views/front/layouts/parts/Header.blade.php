@@ -36,7 +36,7 @@
 
                 <li><a href="{{route('home')}}">Accueil</a></li>
                 <li><a href="{{route('ecoles')}}">Ecoles</a></li>
-                <li><a href="{{route('centres')}}">Centre de langues </a></li>
+                <li><a href="{{route('centers')}}">Centre de langues </a></li>
                 <li><a href="{{route('home')}}">Cours de soutiens</a></li>
                 <li><a href="{{route('home')}}">Librairie</a></li>
 

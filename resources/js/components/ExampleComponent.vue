@@ -1,4 +1,5 @@
 <template>
+
     <form @submit="formSubmit" id="add-comment" class="add-comment  custom-form" name="rangeCalc">
 
         <input type="hidden" v-model="appEcole">
@@ -26,15 +27,15 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label><i class="fal fa-user"></i></label>
-                        <input v-model="name" type="text" placeholder="Votre nom *" required>
+                        <input v-model="name" type="text" placeholder="Votre nom *">
 
                     </div>
                     <div class="col-md-6">
                         <label><i class="fal fa-envelope"></i></label>
-                        <input type="email" v-model="email" placeholder="E-mail Address* non publié" required>
+                        <input type="email" v-model="email" placeholder="E-mail Address* non publié">
                     </div>
                 </div>
-                <textarea v-model="avis" cols="40" rows="3" placeholder="Avis" required></textarea>
+                <textarea v-model="avis" cols="40" rows="3" placeholder="Avis"></textarea>
                 <div class="clearfix"></div>
 
                 <div class="clearfix"></div>
@@ -47,6 +48,18 @@
             </div>
 
         </fieldset>
+
+        <div v-if="errors.length" class="dashboard-list-box mar-dash-list fl-wrap">
+            <div v-for="error in errors" class="dashboard-list fl-wrap">
+                <div class="dashboard-message">
+                    <span class="new-dashboard-item"><i class="fal fa-times"></i></span>
+                    <div class="dashboard-message-text">
+                        <i class="far fa-check red-bg"></i>
+                        <p>{{ error }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </form>
 </template>
@@ -65,7 +78,8 @@
                 score: '5',
                 scoreFrom: '',
                 appEcole: '',
-                output: ''
+                output: '',
+                errors: [],
             };
         },
 
@@ -79,24 +93,47 @@
             alertDisplayError() {
                 this.$swal("error", 'un problème est survenu lors de l\'ajout', 'error')
             },
+            chekForm() {
+                if (this.name && this.email && this.avis) {
+                    return true;
+                }
+
+                this.errors = [];
+
+                if (!this.name) {
+                    this.errors.push('le nom est requis .');
+                }
+                if (!this.email) {
+                    this.errors.push('email adresse est requis .');
+                }
+                if (!this.avis) {
+                    this.errors.push("l\'avis est requis .");
+                }
+            },
             formSubmit(e) {
                 e.preventDefault();
-                let currentObj = this;
-                axios.post(myUrl, {
-                    name: this.name,
-                    email: this.email,
-                    avis: this.avis,
-                    score: this.score,
-                    appEcole: ecoleId,
-                })
-                    .then(function (response) {
-                        //currentObj.output = response.data.success;
+                if (this.chekForm()) {
 
-                        currentObj.alertDisplay(response.data.success);
+                    let currentObj = this;
+
+                    axios.post(myUrl, {
+                        name: this.name,
+                        email: this.email,
+                        avis: this.avis,
+                        score: this.score,
+                        appEcole: ecoleId,
                     })
-                    .catch(function (error) {
-                        currentObj.alertDisplayError();
-                    });
+                        .then(function (response) {
+                            //currentObj.output = response.data.success;
+
+                            currentObj.alertDisplay(response.data.success);
+                        })
+                        .catch(function (error) {
+                            currentObj.alertDisplayError();
+                        });
+                }
+                e.target.reset();
+
             }
         }
     }

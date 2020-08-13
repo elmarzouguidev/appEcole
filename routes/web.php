@@ -20,7 +20,8 @@ Route::get('/ecoles',['uses'=>'EcoleController@index','as'=>'ecoles']);
 Route::get('/ecoles/{slug}',['uses'=>'EcoleController@singleEcole','as'=>'ecoles.single']);
 Route::post('/ecoles/{slug}',['uses'=>'EcoleController@storeReview','as'=>'ecoles.actions.review']);
 
-Route::get('/centre-de-langues',['uses'=>'CenterController@index','as'=>'centres']);
+Route::get('/centre-de-langues',['uses'=>'CenterController@index','as'=>'centers']);
+Route::get('/centre-de-langues/{slug}',['uses'=>'CenterController@singleCenter','as'=>'centers.single']);
 
 Route::get('/cours-de-soutiens',['uses'=>'SoutienController@index','as'=>'cours']);
 

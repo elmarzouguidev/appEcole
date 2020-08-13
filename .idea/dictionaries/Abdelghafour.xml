@@ -2,17 +2,25 @@
   <dictionary name="Abdelghafour">
     <words>
       <w>addresse</w>
+      <w>adresse</w>
+      <w>apicenters</w>
       <w>apprevoed</w>
+      <w>arrondissement</w>
       <w>avec</w>
+      <w>chek</w>
       <w>clearfix</w>
       <w>contentre</w>
+      <w>cours</w>
       <w>csrf</w>
       <w>datas</w>
       <w>ecole</w>
       <w>ecoles</w>
+      <w>envoyer</w>
       <w>facilitie</w>
       <w>filiere</w>
       <w>filieres</w>
+      <w>filtres</w>
+      <w>geodir</w>
       <w>haymacproduction</w>
       <w>heade</w>
       <w>iconn</w>
@@ -22,15 +30,20 @@
       <w>librairie</w>
       <w>listsearch</w>
       <w>livewire</w>
+      <w>lors</w>
       <w>lycee</w>
       <w>niveau</w>
       <w>niveaux</w>
       <w>prevposts</w>
+      <w>problème</w>
       <w>publié</w>
       <w>rainingvis</w>
+      <w>requis</w>
+      <w>réinitialiser</w>
       <w>soutien</w>
       <w>soutiens</w>
       <w>succès</w>
+      <w>survenu</w>
       <w>sweetalert</w>
       <w>tele</w>
       <w>villes</w>

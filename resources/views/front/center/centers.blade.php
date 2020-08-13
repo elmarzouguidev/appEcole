@@ -1,7 +1,7 @@
 <div class="container">
     <!-- listing-ECOLES  -->
 
-    @foreach($ecoles as $ecole)
+    @foreach($centers as $center)
         <ul>
 
             {{--$ecole->getNiveaux()
@@ -15,12 +15,12 @@
             <article class="geodir-category-listing fl-wrap">
                 <div class="geodir-category-img">
                     <div class="geodir-js-favorite_btn"><i class="fal fa-heart"></i><span>Save</span></div>
-                    <a href="{{route('ecoles.single',$ecole->slug)}}" class="geodir-category-img-wrap fl-wrap">
-                        <img src="{{Voyager::image($ecole->image)}}" alt="{{$ecole->name}}">
+                    <a href="{{route('centers.single',$center->slug)}}" class="geodir-category-img-wrap fl-wrap">
+                        <img src="{{Voyager::image($center->image)}}" alt="{{$center->name}}">
                     </a>
                     <div class="listing-avatar">
-                        <a href="{{route('ecoles.single',$ecole->slug)}}">
-                            <img src="{{Voyager::image($ecole->logo)}}" alt="{{$ecole->name}}">
+                        <a href="{{route('centers.single',$center->slug)}}">
+                            <img src="{{Voyager::image($center->logo)}}" alt="{{$center->name}}">
                         </a>
                         {{--<span class="avatar-tooltip">Added By  <strong>HayMacProduction</strong></span>--}}
                     </div>
@@ -30,7 +30,7 @@
                             <div class="review-score">4.8</div>
                             <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
                             <br>
-                            <div class="reviews-count">{{$ecole->reviews()->count()}} avis</div>
+                            <div class="reviews-count">10 avis</div>
                         </div>
                     </div>
                 </div>
@@ -38,24 +38,24 @@
                     <div class="geodir-category-content-title fl-wrap">
                         <div class="geodir-category-content-title-item">
                             <h3 class="title-sin_map">
-                                <a href="{{route('ecoles.single',$ecole->slug)}}">{{$ecole->name}}</a>
+                                <a href="{{route('centers.single',$center->slug)}}">{{$center->name}}</a>
                                 <span class="verified-badge"><i class="fal fa-check"></i></span>
                             </h3>
                             <div class="geodir-category-location fl-wrap">
                                 <a href="#{{$loop->index+1}}" class="map-item">
-                                    <i class="fas fa-map-marker-alt"></i> {{$ecole->addresse}}
+                                    <i class="fas fa-map-marker-alt"></i> {{$center->addresse}}
                                 </a>
                             </div>
                         </div>
                     </div>
                     {{--@if($ecole->facilities()->count())--}}
                     <div class="geodir-category-text fl-wrap">
-                        <p class="small-text">{{$ecole->name}}</p>
+                        <p class="small-text">{{$center->name}}</p>
                         <div class="facilities-list fl-wrap">
                             <div class="facilities-list-title">Facilities :</div>
                             <ul class="no-list-style">
-                                @if($ecole->facilities()->count())
-                                    @foreach($ecole->facilities as $fac)
+                                @if($center->facilities()->count())
+                                    @foreach($center->facilities as $fac)
                                         <li class="tolt" data-microtip-position="top"
                                             data-tooltip="{{$fac->description}}"><i class="fal {{$fac->icon_code}}"></i>
                                         </li>
@@ -73,7 +73,7 @@
                         <a class="listing-item-category-wrap">
                             <div class="listing-item-category yellow-bg">
                                 <i class="fal fa-city"></i></div>
-                            <span>{{$ecole->ville_name}}</span>
+                            <span>{{$center->ville_name}}</span>
                         </a>
                         <div class="geodir-opt-list">
                             <ul class="no-list-style">
@@ -101,10 +101,10 @@
                         <div class="geodir-category_contacts">
                             <div class="close_gcc"><i class="fal fa-times-circle"></i></div>
                             <ul class="no-list-style">
-                                <li><span><i class="fal fa-phone"></i></span><a href="tel:{{$ecole->tele}}">{{$ecole->tele}}</a>
+                                <li><span><i class="fal fa-phone"></i></span><a href="tel:{{$center->tele}}">{{$center->tele}}</a>
                                 </li>
                                 <li><span><i class="fal fa-envelope"></i></span><a
-                                        href="#">{{$ecole->email}}</a></li>
+                                        href="#">{{$center->email}}</a></li>
                             </ul>
                         </div>
                     </div>

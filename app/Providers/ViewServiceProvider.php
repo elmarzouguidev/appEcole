@@ -27,7 +27,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer(['front.ecole.*','livewire.*'], function ($view) {
+        View::composer(['front.*','livewire.*'], function ($view) {
             $view->with('areas', Area::select('name','slug')->get())
                  ->with('villes',Ville::all())
                  ->with('niveaux',Niveau::select('name','slug')->get());
