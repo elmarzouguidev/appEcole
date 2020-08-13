@@ -40,6 +40,7 @@ class EcoleController extends Controller
      */
     public function singleEcole(Request $request, $slug){
 
+
         $ecole = Ecole::whereSlug($slug)->firstOrFail();
 
         views($ecole)->record();

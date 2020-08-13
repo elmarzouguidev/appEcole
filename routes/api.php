@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('app-ecoles',['uses'=>'API\EcoleController@index','as'=>'apiecoles']);
 
 Route::get('app-centers',['uses'=>'API\CenterController@index','as'=>'apicenters']);
+    //->middleware('apiCheck');
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

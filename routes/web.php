@@ -25,6 +25,9 @@ Route::get('/centre-de-langues/{slug}',['uses'=>'CenterController@singleCenter',
 
 Route::get('/cours-de-soutiens',['uses'=>'SoutienController@index','as'=>'cours']);
 
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+

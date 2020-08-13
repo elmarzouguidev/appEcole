@@ -102,5 +102,8 @@ class Ecole extends Model implements Viewable
     {
         return Facilitie::where('active',true)->first();
     }*/
-
+   /* public function getRouteKeyName()
+    {
+        return 'slug';
+    }*/
 }
