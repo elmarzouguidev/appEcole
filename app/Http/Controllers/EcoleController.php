@@ -55,6 +55,8 @@ class EcoleController extends Controller
 
     public function storeReview(Request $request){
 
+       // return response()->json([$request->all()]);
+
         $request->validate([
             'name'=>'required|string',
             'email'=>'required|email',
@@ -74,7 +76,9 @@ class EcoleController extends Controller
             'ecole_id'=>$request->appEcole
         ]);
 
-        return response()->json(['success'=>'l\'article a bien été modifier']);
+        return response()->json([
+            'success'=>"merci pour votre avis éclairé ... votre avis sera publié le plus vite possible",
+        ]);
     }
 
     protected function searchNiveau($keyword, $arrayToSearch){

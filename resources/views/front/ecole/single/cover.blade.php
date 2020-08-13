@@ -28,8 +28,8 @@
                 <div class="col-md-3">
                     <a class="fl-wrap list-single-header-column custom-scroll-link " href="#sec5">
                         <div class="listing-rating-count-wrap single-list-count">
-                            <div class="review-score">4.1</div>
-                            <div class="listing-rating card-popup-rainingvis" data-starrating2="4"></div>
+                            <div class="review-score">{{$ecole->reviews()->avg('score')}}.0</div>
+                            <div class="listing-rating card-popup-rainingvis" data-starrating2="{{$ecole->reviews()->avg('score')}}"></div>
                             <br>
                             <div class="reviews-count">{{$ecole->reviews()->count()}} avis</div>
                         </div>

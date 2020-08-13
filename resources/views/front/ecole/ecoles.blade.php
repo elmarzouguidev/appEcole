@@ -27,7 +27,7 @@
                             <div class="review-score">4.8</div>
                             <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
                             <br>
-                            <div class="reviews-count">12 reviews</div>
+                            <div class="reviews-count">{{$ecole->reviews()->count()}} avis</div>
                         </div>
                     </div>
                 </div>
