@@ -29,7 +29,7 @@ class EcoleController extends Controller
             // ->appends(request()->query());
             ->get();
 
-        return view('front.ecole.index',compact('ecoles'));
+        return view('front.ecole_v2.index',compact('ecoles'));
     }
 
     /**

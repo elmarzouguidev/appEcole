@@ -17,9 +17,10 @@
    
       {{--@include('front.home.section-how-it-work')--}}  
    @include('front.home.section-application')
+
    @include('front.home.section-category')
 
-   @include('front.home.section-testimonials')
+  {{-- @include('front.home.section-testimonials')--}}
 
    @include('front.home.section-clients')
 
