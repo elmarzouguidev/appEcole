@@ -25,11 +25,13 @@ class CreateCentersTable extends Migration
             $table->string('ville_name')->nullable();
             $table->string('area')->nullable();
             $table->string('all_niveaux')->nullable();
+            $table->string('all_langues')->nullable();
             $table->string('tele')->unique();
             $table->string('email')->unique()->index('centers_Emails');
             $table->string('website')->nullable()->unique();
             $table->geometry('positions')->nullable();
             $table->text('extras')->nullable();
+            $table->enum('type', ['bilingue', 'mission']);
             $table->enum('transport', ['avec', 'sans']);
             $table->string('promo_video')->nullable()->unique();
            // $table->json('langues');

@@ -1,7 +1,7 @@
 <div class="container">
     <!-- listing-ECOLES  -->
 
-    @foreach($ecoles as $ecole)
+    @foreach($centers as $ecole)
 
         <div class="listing-item">
             <article class="geodir-category-listing fl-wrap">
@@ -22,7 +22,7 @@
                             <div class="review-score">4.8</div>
                             <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
                             <br>
-                            <div class="reviews-count">{{$ecole->reviews()->count()}} avis</div>
+                            <div class="reviews-count">5 avis</div>
                         </div>
                     </div>
                 </div>

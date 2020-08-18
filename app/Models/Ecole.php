@@ -107,9 +107,8 @@ class Ecole extends Model implements Viewable
         return 'slug';
     }*/
 
-    public function getSlugAttribute($value){
 
-       return  route('ecoles.single',$value);
-      
+    public function getUrl(){
+        return  route('ecoles.single',$this->slug);
     }
 }

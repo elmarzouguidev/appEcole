@@ -19,7 +19,7 @@ class CenterController extends Controller
             ->allowedFilters([
 
                 'area','type',
-                
+                AllowedFilter::exact('langue', 'all_langues'),
                 AllowedFilter::exact('niveaux', 'all_niveaux'),
                 AllowedFilter::exact('LaVille', 'ville_name'),
                 AllowedFilter::exact('Arrondissement', 'area')
@@ -29,7 +29,7 @@ class CenterController extends Controller
             // ->appends(request()->query());
             ->get();
 
-        return view('front.center.index',compact('centers'));
+        return view('front.center_v2.index',compact('centers'));
     }
 
     public function singleCenter(Request $request, $slug){

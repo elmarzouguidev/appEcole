@@ -22,14 +22,6 @@
                         @endforeach
                 </select>
             </div>
-
-            <div class="listsearch-input-item">
-                <select name="getData[type]" data-placeholder="Location" class="chosen-select no-search-select" >
-                    <option value="">Type</option>
-                    <option value="bilingue">Bilingue</option>
-                    <option value="mission">Mission</option>
-                </select>
-            </div>
            {{--
                 <div class="listsearch-input-item location autocomplete-container">
                     <span class="iconn-dec"><i class="far fa-map-marker"></i></span>
@@ -41,6 +33,14 @@
                 <button class="toggle-filter-btn tsb_act "><i class="fal fa-clock"></i> <span>Open Now</span></button>
             </div>
               --}}
+
+            <div class="listsearch-input-item">
+                <select name="getData[type]" data-placeholder="Location" class="chosen-select no-search-select" >
+                    <option value="">Type</option>
+                    <option value="bilingue">Bilingue</option>
+                    <option value="mission">Mission</option>
+                </select>
+            </div>
             <div class="listsearch-input-item clact">
                 <div class=" fl-wrap filter-tags">
                     <ul class="no-list-style">
@@ -48,6 +48,19 @@
                             <li>
                                 <input id="check-d-{{$loop->index}}" type="checkbox" name="getData[niveaux][]" value="{{$niveau->slug}}">
                                 <label for="check-d-{{$loop->index}}">{{$niveau->name}}</label>
+                            </li>
+                        @endforeach
+            
+                    </ul>
+                </div>
+            </div>
+            <div class="listsearch-input-item clact">
+                <div class=" fl-wrap filter-tags">
+                    <ul class="no-list-style">
+                        @foreach($langues as $langue)
+                            <li>
+                                <input id="check-d-{{$loop->index}}" type="checkbox" name="getData[langue][]" value="{{$langue->slug}}">
+                                <label for="check-d-{{$loop->index}}">{{$langue->name}}</label>
                             </li>
                         @endforeach
             

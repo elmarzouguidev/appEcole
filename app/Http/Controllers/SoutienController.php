@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Soutien;
 use Illuminate\Http\Request;
-
+use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\QueryBuilder;
 class SoutienController extends Controller
 {
     /**
@@ -14,7 +15,22 @@ class SoutienController extends Controller
      */
     public function index()
     {
-        //
+        $cours = QueryBuilder::for(Soutien::class)
+
+        ->allowedFilters([
+
+            'area','type',
+            AllowedFilter::exact('niveaux', 'all_niveaux'),
+            AllowedFilter::exact('LaVille', 'ville_name'),
+            AllowedFilter::exact('hasTransport', 'transport'),
+            AllowedFilter::exact('Arrondissement', 'area')
+
+        ])
+        // ->paginate(2)
+        // ->appends(request()->query());
+        ->get();
+
+        return view('front.soutien_v2.index',compact('cours'));
     }
 
     /**

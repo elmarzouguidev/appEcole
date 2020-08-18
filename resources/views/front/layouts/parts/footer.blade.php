@@ -1,3 +1,4 @@
+@yield('mapFooter')
 <!--footer -->
 <footer class="main-footer fl-wrap">
     <!-- footer-header-->

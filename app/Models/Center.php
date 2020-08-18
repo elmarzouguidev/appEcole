@@ -55,6 +55,13 @@ class Center extends Model implements Viewable
         //->get();
     }
 
+    public function getLangues(){
+        return $this->langues()
+        ->wherePivot('center_id','=',$this->id)
+        ->select('slug')
+        ->pluck('slug');
+    }
+
     protected static function boot()
     {
         parent::boot();
@@ -64,12 +71,19 @@ class Center extends Model implements Viewable
             $query->area = $query->getArea();
             $query->ville_name = $query->getVille();
             $query->all_niveaux = $query->getNiveaux();
+            $query->all_langues = $query->getLangues();
         });
         // auto-sets values on update
         static::updating(function ($query) {
             $query->area = $query->getArea();
             $query->ville_name = $query->getVille();
             $query->all_niveaux = $query->getNiveaux();
+            $query->all_langues = $query->getLangues();
         });
+    }
+
+
+    public function getUrl(){
+        return  route('centers.single',$this->slug);
     }
 }

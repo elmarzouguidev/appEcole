@@ -1,12 +1,11 @@
 
 @extends('front.layouts.app')
 
-
 @section('content')
 
-    @include('front.ecole_v2.topCover')
+    @include('front.soutien_v2.topCover')
 
-    @include('front.ecole_v2.content')
+    @include('front.soutien_v2.content')
 
 @endsection
 
@@ -15,5 +14,7 @@
 @endsection
 
 @section('mapFooter')
-   @include('front.ecole_v2.model')
+
+   @include('front.soutien_v2.model')
+   
 @endsection

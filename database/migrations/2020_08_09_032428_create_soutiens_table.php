@@ -14,6 +14,7 @@ class CreateSoutiensTable extends Migration
     public function up()
     {
         Schema::create('soutiens', function (Blueprint $table) {
+
             $table->id();
             $table->string('name',50)->unique();
             $table->string('slug',60)->unique();
@@ -26,13 +27,16 @@ class CreateSoutiensTable extends Migration
             $table->string('website')->nullable()->unique();
             $table->geometry('positions')->nullable();
             $table->text('extras')->nullable();
-
+            $table->string('all_niveaux')->nullable();
+            $table->string('ville_name')->nullable();
+            $table->string('area')->nullable();
             $table->enum('transport', ['avec', 'sans']);
 
             $table->tinyInteger('active')->default(true);
             $table->foreignId('ville_id')->references('id')->on('villes');
             $table->foreignId('area_id')->references('id')->on('areas');
             $table->timestamps();
+
         });
     }
 

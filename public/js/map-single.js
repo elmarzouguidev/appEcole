@@ -669,19 +669,20 @@ function singleMap() {
         var $that = $(this),
             newln = $that.data("newlatitude"),
             newlg = $that.data("newlongitude"),
-            newtitle = $that.parents(".title-sin_item").find(".title-sin_map a").text(),
-            newurl = $that.parents(".title-sin_item").find(".title-sin_map a").attr('href');
+            //newtitle = $that.parents(".title-sin_item").find(".title-sin_map a").text(),
+            newtitle = $that.data("newtitle"),
+            newurl =  $that.data("slug");
         var latlng = new google.maps.LatLng(newln, newlg);
         marker.setPosition(latlng);
         single_map.panTo(latlng);
         $(".map-modal-container h3 a").text(newtitle).attr("href", newurl);
     });
     $(".map-modal-close , .map-modal-wrap-overlay").on("click", function (e) {
+
         $(".map-modal-wrap").fadeOut(400);
         single_map.setZoom(14);
         single_map.getStreetView().setVisible(false);
- 
- 
+
     });
 	
 	

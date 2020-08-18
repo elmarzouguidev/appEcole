@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Area;
 use App\Models\Niveau;
 use App\Models\Ville;
+use App\Models\Langue;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use TCG\Voyager\Models\Page;
@@ -30,8 +31,8 @@ class ViewServiceProvider extends ServiceProvider
         View::composer(['front.*','livewire.*'], function ($view) {
             $view->with('areas', Area::select('name','slug')->get())
                  ->with('villes',Ville::all())
-                 ->with('niveaux',Niveau::select('name','slug')->get());
-
+                 ->with('niveaux',Niveau::select('name','slug')->get())
+                 ->with('langues',Langue::select('name','slug')->get());
         });
     }
 }
