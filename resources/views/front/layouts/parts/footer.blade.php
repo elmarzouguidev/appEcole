@@ -6,15 +6,21 @@
             <div class="row">
                 <div class="col-md-5">
                     <div  class="subscribe-header">
-                        <h3>Subscribe For a <span>Newsletter</span></h3>
-                        <p>Whant to be notified about new locations ?  Just sign up.</p>
+                        <h3>Abonnez-vous</h3>
+                    
+                        <p>
+                            Vous souhaitez être 
+                            informé des nouveaux
+                            emplacements? Inscrivez-vous
+                            simplement.
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-7">
                     <div class="subscribe-widget">
                         <div class="subcribe-form">
                             <form id="subscribe">
-                                <input class="enteremail fl-wrap" name="email" id="subscribe-email" placeholder="Enter Your Email" spellcheck="false" type="text">
+                                <input class="enteremail fl-wrap" name="email" id="subscribe-email" placeholder="Entrer votre Email" spellcheck="false" type="email">
                                 <button type="submit" id="subscribe-button" class="subscribe-button"><i class="fal fa-envelope"></i></button>
                                 <label for="subscribe-email" class="subscribe-message"></label>
                             </form>
@@ -34,20 +40,30 @@
                     <div class="footer-widget fl-wrap">
                         <div class="footer-logo"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
                         <div class="footer-contacts-widget fl-wrap">
-                            <p>In ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus. Nulla eu mi magna. Etiam suscipit commodo gravida.   </p>
+                            <p>
+                               {{setting('footer.footer_descr')}}  
+                            </p>
                             <ul  class="footer-contacts fl-wrap no-list-style">
-                                <li><span><i class="fal fa-envelope"></i> Mail :</span><a href="#" target="_blank">yourmail@domain.com</a></li>
-                                <li> <span><i class="fal fa-map-marker"></i> Adress :</span><a href="#" target="_blank">USA 27TH Brooklyn NY</a></li>
-                                <li><span><i class="fal fa-phone"></i> Phone :</span><a href="#">+7(111)123456789</a></li>
+                                <li><span><i class="fal fa-envelope"></i> E-mail :</span><a href="#" target="_blank">{{setting('contact.contact_email')}}</a></li>
+                                <li> <span><i class="fal fa-map-marker"></i> Addresse :</span><a href="#" target="_blank">{{setting('contact.contact_address')}}</a></li>
+                                <li><span><i class="fal fa-phone"></i> Téléphone :</span><a href="#">{{setting('contact.contact_tele')}}</a></li>
                             </ul>
                             <div class="footer-social">
-                                <span>Find  us on: </span>
+                                <span>Suivez nous</span>
                                 <ul class="no-list-style">
-                                    <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                                    
+                                        @if(setting('contact.contact_twitter'))
+                                        <li><a href="{{setting('contact.contact_facebook')}}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                        @endif
+                                        @if(setting('contact.contact_twitter'))
+                                        <li><a href="{{setting('contact.contact_twitter')}}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                        @endif
+                                        @if(setting('contact.contact_instagram'))
+                                        <li><a href="{{setting('contact.contact_instagram')}}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                        @endif
+                                        @if(setting('contact.contact_wtsp'))
+                                        <li><a href="{{setting('contact.contact_wtsp')}}" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                                        @endif
                                 </ul>
                             </div>
                         </div>
@@ -57,7 +73,7 @@
                 <!-- footer-widget-->
                 <div class="col-md-4">
                     <div class="footer-widget fl-wrap">
-                        <h3>Our Last News</h3>
+                        <h3>dernières nouvelles</h3>
                         <div class="footer-widget-posts fl-wrap">
                             <ul class="no-list-style">
                                 <li class="clearfix">
@@ -113,16 +129,17 @@
     <!--sub-footer-->
     <div class="sub-footer  fl-wrap">
         <div class="container">
-            <div class="copyright"> &#169; Townhub 2019 .  All rights reserved.</div>
-            <div class="lang-wrap">
-                <div class="show-lang"><span><i class="fal fa-globe-europe"></i><strong>En</strong></span><i class="fa fa-caret-down arrlan"></i></div>
-                <ul class="lang-tooltip lang-action no-list-style">
-                    <li><a href="#" class="current-lan" data-lantext="En">English</a></li>
-                    <li><a href="#" data-lantext="Fr">Français</a></li>
-                    <li><a href="#" data-lantext="Es">Español</a></li>
-                    <li><a href="#" data-lantext="De">Deutsch</a></li>
-                </ul>
-            </div>
+            <div class="copyright"> mesecoles @ 2020 .  All rights reserved.</div>
+            {{--
+                <div class="lang-wrap">
+                    <div class="show-lang"><span><i class="fal fa-globe-europe"></i><strong>En</strong></span><i class="fa fa-caret-down arrlan"></i></div>
+                    <ul class="lang-tooltip lang-action no-list-style">
+                        <li><a href="#" class="current-lan" data-lantext="En">English</a></li>
+                        <li><a href="#" data-lantext="Fr">Français</a></li>
+                    
+                    </ul>
+                </div>
+            --}}
             <div class="subfooter-nav">
                 <ul class="no-list-style">
                     <li><a href="#">Terms of use</a></li>

@@ -4,9 +4,11 @@
     <!--container-->
     <div class="container">
         <div class="video_section-title fl-wrap">
-            <h4>Aliquam erat volutpat interdum</h4>
-            <h2>Get ready to start your exciting journey. <br> Our agency will lead you through the amazing digital world</h2>
+          {{-- <h4>Aliquam erat volutpat interdum</h4>--}} 
+            <h2> Parlez les langues est si important ? </h2>
         </div>
-        <a href="https://vimeo.com/70851162" class="promo-link big_prom   image-popup"><i class="fal fa-play"></i><span>Promo Video</span></a>
+        <a href="" class="promo-link big_prom   image-popup">
+            <i class="fal fa-link"></i><span>Promo Video</span>
+        </a>
     </div>
 </section>

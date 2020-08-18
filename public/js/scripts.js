@@ -214,9 +214,9 @@ function initTowhub() {
     if ($(".testimonilas-carousel").length > 0) {
         var j2 = new Swiper(".testimonilas-carousel .swiper-container", {
             preloadImages:true,
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 20,
-            loop: true,
+            loop: false,
             grabCursor: true,
             mousewheel: false,
             centeredSlides: true,
@@ -229,14 +229,14 @@ function initTowhub() {
                 nextEl: '.listing-carousel-button-next',
                 prevEl: '.listing-carousel-button-prev',
             },
-            breakpoints: {
+           /* breakpoints: {
                 1064: {
                     slidesPerView: 2,
                 },
                 640: {
                     slidesPerView: 1,
                 },
-            }
+            }*/
         });
     }
     if ($(".dashboard-header-stats").length > 0) {
@@ -486,7 +486,7 @@ function initTowhub() {
     if ($("#footer-twiit").length > 0) {
         var config1 = {
             "profile": {
-                "screenName": 'envatomarket'
+                "screenName": 'mesecoles'
             },
             "domId": 'footer-twiit',
             "maxTweets": 4,

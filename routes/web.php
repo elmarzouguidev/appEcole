@@ -24,7 +24,10 @@ Route::get('/centre-de-langues',['uses'=>'CenterController@index','as'=>'centers
 Route::get('/centre-de-langues/{slug}',['uses'=>'CenterController@singleCenter','as'=>'centers.single']);
 
 Route::get('/cours-de-soutiens',['uses'=>'SoutienController@index','as'=>'cours']);
+Route::get('/cours-de-soutiens/{slug}',['uses'=>'SoutienController@single','as'=>'cours.single']);
 
+Route::get('/librairies',['uses'=>'LibrairieController@index','as'=>'librairies']);
+Route::get('/librairies/{slug}',['uses'=>'LibrairieController@single','as'=>'librairies.single']);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

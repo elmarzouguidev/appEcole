@@ -31,9 +31,10 @@ class CreateLibrairiesTable extends Migration
             $table->text('extras')->nullable();
 
             $table->enum('livraison', ['avec', 'sans']);
-            $table->enum('type', ['Bilingue', 'mission']);
+            $table->enum('type', ['bilingue', 'mission']);
 
             $table->tinyInteger('active')->default(true);
+            $table->tinyInteger('inHome')->default(false);
             $table->foreignId('ville_id')->references('id')->on('villes');
             $table->foreignId('area_id')->references('id')->on('areas');
             $table->timestamps();

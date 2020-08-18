@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Traits\Spatial;
 
 class Librairie extends Model
@@ -31,6 +31,10 @@ class Librairie extends Model
         return $this->ville()->first('slug')->getAttribute('slug');
     }
 
+    public function scopeHome($query)
+    {
+        return $query->where('inHome',true)->get();
+    }
 
     protected static function boot()
     {
@@ -48,5 +52,19 @@ class Librairie extends Model
             $query->ville_name = $query->getVille();
            // $query->all_niveaux = $query->getNiveaux();
         });
+    }
+
+
+    public function getSlugAttribute($value){
+
+        return  route('librairies.single',$value);
+       
+    }
+
+    public function getImageAttribute($value){
+        return Voyager::image($value);
+    }
+    public function getLogoAttribute($value){
+        return Voyager::image($value);
     }
 }

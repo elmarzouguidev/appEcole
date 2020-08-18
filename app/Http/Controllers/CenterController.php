@@ -17,16 +17,28 @@ class CenterController extends Controller
         $centers = QueryBuilder::for(Center::class)
 
             ->allowedFilters([
+
                 'area','type',
+                
                 AllowedFilter::exact('niveaux', 'all_niveaux'),
                 AllowedFilter::exact('LaVille', 'ville_name'),
                 AllowedFilter::exact('Arrondissement', 'area')
+
             ])
             // ->paginate(2)
             // ->appends(request()->query());
             ->get();
 
         return view('front.center.index',compact('centers'));
+    }
+
+    public function singleCenter(Request $request, $slug){
+
+        $center = Center::whereSlug($slug)->firstOrFail();
+
+        views($center)->record();
+
+        return view('front.center.single.index',compact('center'));
     }
 
 }

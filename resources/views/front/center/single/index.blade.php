@@ -3,25 +3,30 @@
 
 @section('content')
 
-    @include('front.ecole.single.cover')
+    @include('front.center.single.cover')
 
-    @include('front.ecole.single.navDetails')
+    @include('front.center.single.navDetails')
 
-    @include('front.ecole.single.content')
+    @include('front.center.single.content')
 
 @endsection
 
 @section('styles')
+
     <link type="text/css" rel="stylesheet" href="{{asset('css/dashboard-style.css')}}">
+
 @endsection
 
 @section('scripts')
     {{--<script  src="https://unpkg.com/axios/dist/axios.min.js"></script>--}}
 
     <script src="{{asset('js/map-single.js')}}"></script>
+
      <script>
-         let myUrl = '{{route('ecoles.actions.review',$ecole->slug)}}';
-         let ecoleId = '{{$ecole->id}}';
+
+         let myUrl = '';
+         
+         let ecoleId = '';
          //console.log(myUrl);
      </script>
 @endsection

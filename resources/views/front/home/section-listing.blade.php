@@ -19,13 +19,13 @@
                                 <article class="geodir-category-listing fl-wrap">
                                     <div class="geodir-category-img">
                                         <div class="geodir-js-favorite_btn"><i class="fal fa-heart"></i><span>Save</span></div>
-                                        <a href="listing-single.html" class="geodir-category-img-wrap fl-wrap">
+                                        <a href="{{$ecole->slug}}" class="geodir-category-img-wrap fl-wrap">
                                             <img src="{{Voyager::image($ecole->image)}}" alt="{{$ecole->name}}">
                                         </a>
                                         <div class="geodir_status_date gsd_open"><i class="fal fa-lock-open"></i>Open Now</div>
                                         <div class="geodir-category-opt">
                                             <div class="geodir-category-opt_title">
-                                                <h4><a href="listing-single.html">{{$ecole->name}}</a></h4>
+                                                <h4><a href="{{$ecole->slug}}">{{$ecole->name}}</a></h4>
                                                 <div class="geodir-category-location">
                                                     <a href="#">
                                                         <i class="fas fa-map-marker-alt"></i> {{$ecole->addresse}}
@@ -47,7 +47,12 @@
                                                     <span class="price-level-item" data-pricerating="2"></span>
                                                     <span class="price-name-tooltip">Pricey</span>
                                                 </div>
-                                                <div class="post-author"><a href="#"><img src="{{Voyager::image($ecole->logo)}}" alt=""><span>{{$ecole->area}}</span></a></div>
+                                                <div class="post-author">
+                                                    <a href="{{$ecole->slug}}">
+                                                        <img src="{{Voyager::image($ecole->logo)}}" alt="">
+                                                        <span>{{$ecole->area}}</span>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

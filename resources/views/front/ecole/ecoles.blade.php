@@ -15,11 +15,11 @@
             <article class="geodir-category-listing fl-wrap">
                 <div class="geodir-category-img">
                     <div class="geodir-js-favorite_btn"><i class="fal fa-heart"></i><span>Save</span></div>
-                    <a href="{{route('ecoles.single',$ecole->slug)}}" class="geodir-category-img-wrap fl-wrap">
+                    <a href="{{$ecole->slug}}" class="geodir-category-img-wrap fl-wrap">
                         <img src="{{Voyager::image($ecole->image)}}" alt="{{$ecole->name}}">
                     </a>
                     <div class="listing-avatar">
-                        <a href="{{route('ecoles.single',$ecole->slug)}}">
+                        <a href="{{$ecole->slug}}">
                             <img src="{{Voyager::image($ecole->logo)}}" alt="{{$ecole->name}}">
                         </a>
                         {{--<span class="avatar-tooltip">Added By  <strong>HayMacProduction</strong></span>--}}
@@ -38,7 +38,7 @@
                     <div class="geodir-category-content-title fl-wrap">
                         <div class="geodir-category-content-title-item">
                             <h3 class="title-sin_map">
-                                <a href="{{route('ecoles.single',$ecole->slug)}}">{{$ecole->name}}</a>
+                                <a href="{{$ecole->slug}}">{{$ecole->name}}</a>
                                 <span class="verified-badge"><i class="fal fa-check"></i></span>
                             </h3>
                             <div class="geodir-category-location fl-wrap">

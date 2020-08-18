@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Models;
-
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Traits\Spatial;
 
-class Center extends Model
+class Center extends Model implements Viewable
 {
-    use Spatial;
+
+    use Spatial,InteractsWithViews;
 
     protected $spatial = ['positions'];
 
@@ -20,13 +22,16 @@ class Center extends Model
     }
 
     public function langues(){
+
         return $this->belongsToMany('App\Models\Langue', 'langue_center','center_id','langue_id');
     }
 
     public function niveaux(){
+
         return $this->belongsToMany('App\Models\Niveau', 'center_niveau','center_id','niveau_id');
     }
     public function facilities(){
+        
         return $this->belongsToMany('App\Models\Facilitie', 'facilitie_center','center_id','facilitie_id');
         // ->where('active',true)->get();
 

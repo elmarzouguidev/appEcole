@@ -31,6 +31,7 @@ class CreateCentersTable extends Migration
             $table->geometry('positions')->nullable();
             $table->text('extras')->nullable();
             $table->enum('transport', ['avec', 'sans']);
+            $table->string('promo_video')->nullable()->unique();
            // $table->json('langues');
             $table->tinyInteger('active')->default(true);
             $table->foreignId('ville_id')->references('id')->on('villes');

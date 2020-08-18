@@ -14,16 +14,17 @@ class Ecole extends JsonResource
      * @return array
      */
     public static $wrap = 'ecoles';
+
     public function toArray($request)
     {
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'slug'=>route('ecoles.single',$this->slug),
+            'slug'=>$this->slug,
             'addresse'=>$this->addresse,
             'email' => $this->email,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+           // 'created_at' => $this->created_at,
+           // 'updated_at' => $this->updated_at,
             'ville'=>$this->ville_name,
             'area'=>$this->area,
             /*************************************/

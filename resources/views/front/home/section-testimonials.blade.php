@@ -14,70 +14,27 @@
         <div class="testimonilas-carousel">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <!--testi-item-->
-                    <div class="swiper-slide">
-                        <div class="testi-item fl-wrap">
-                            <div class="testi-avatar"><img src="images/avatar/1.jpg" alt=""></div>
-                            <div class="testimonilas-text fl-wrap">
-                                <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
-                                <p>"Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. "</p>
-                                <a href="#" class="testi-link" target="_blank">Via Facebook</a>
-                                <div class="testimonilas-avatar fl-wrap">
-                                    <h3>Andy Dimasky</h3>
-                                    <h4>Restaurant Owner</h4>
+                   @foreach($testimonials as $testi)
+
+                        <div class="swiper-slide">
+                            <div class="testi-item fl-wrap">
+                            <div class="testi-avatar"><img src="{{$testi->avatar ?? 'images/avatar/1.jpg'}}" alt=""></div>
+                                <div class="testimonilas-text fl-wrap">
+                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
+                                    <p>
+                                        {{$testi->content}}
+                                    </p>
+                                    <a href="#" class="testi-link" target="_blank">Via Facebook</a>
+                                    <div class="testimonilas-avatar fl-wrap">
+                                        <h3>{{$testi->name}}</h3>
+                                        <h4>{{$testi->post}}</h4>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!--testi-item end-->
-                    <!--testi-item-->
-                    <div class="swiper-slide">
-                        <div class="testi-item fl-wrap">
-                            <div class="testi-avatar"><img src="images/avatar/1.jpg" alt=""></div>
-                            <div class="testimonilas-text fl-wrap">
-                                <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
-                                <p>"Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. "</p>
-                                <a href="#" class="testi-link" target="_blank">Via Twitter</a>
-                                <div class="testimonilas-avatar fl-wrap">
-                                    <h3>Frank Dellov</h3>
-                                    <h4>Hotel Owner</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--testi-item end-->
-                    <!--testi-item-->
-                    <div class="swiper-slide">
-                        <div class="testi-item fl-wrap">
-                            <div class="testi-avatar"><img src="images/avatar/1.jpg" alt=""></div>
-                            <div class="testimonilas-text fl-wrap">
-                                <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
-                                <p>"Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. "</p>
-                                <a href="#" class="testi-link" target="_blank">Via Facebook</a>
-                                <div class="testimonilas-avatar fl-wrap">
-                                    <h3>Centa Simpson</h3>
-                                    <h4>Restaurant Owner</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--testi-item end-->
-                    <!--testi-item-->
-                    <div class="swiper-slide">
-                        <div class="testi-item fl-wrap">
-                            <div class="testi-avatar"><img src="images/avatar/1.jpg" alt=""></div>
-                            <div class="testimonilas-text fl-wrap">
-                                <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
-                                <p>"Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. "</p>
-                                <a href="#" class="testi-link" target="_blank">Via Instagram</a>
-                                <div class="testimonilas-avatar fl-wrap">
-                                    <h3>Linda Svensky</h3>
-                                    <h4>Shop Owner</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--testi-item end-->
+
+                    @endforeach
+       
                 </div>
             </div>
         </div>
@@ -90,5 +47,6 @@
         <div class="waveWrapperInner bgBottom">
             <div class="wave-bg-anim waveBottom" style="background-image: url('images/wave-top.png')"></div>
         </div>
+
     </div>
 </section>

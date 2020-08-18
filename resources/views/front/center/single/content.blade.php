@@ -2,8 +2,8 @@
     <div class="container">
         <div class="breadcrumbs inline-breadcrumbs fl-wrap">
             <a href="{{route('home')}}">Accueil</a>
-            <a href="{{route('ecoles')}}">Ecoles</a>
-            <a href="#">{{$ecole->name}}</a><span> Détails</span>
+            <a href="{{route('centers')}}">Centers</a>
+            <a href="#">{{$center->name}}</a><span> Détails</span>
         </div>
         <div class="clearfix"></div>
         <div class="row">
@@ -12,9 +12,9 @@
                 <!-- list-single-main-wrapper -->
                 <div class="list-single-main-wrapper fl-wrap" id="sec2">
                     <div class="list-single-main-media fl-wrap">
-                        <img src="{{Voyager::image($ecole->image)}}" class="respimg" alt="{{$ecole->name}}">
-                        @if($ecole->promo_video)
-                            <a href="{{$ecole->promo_video}}" class="promo-link   image-popup">
+                        <img src="{{Voyager::image($center->image)}}" class="respimg" alt="{{$center->name}}">
+                        @if($center->promo_video)
+                            <a href="{{$center->promo_video}}" class="promo-link   image-popup">
                                 <i class="fal fa-video"></i><span>Vidéo promotionnelle</span>
                             </a>
                         @endif
@@ -28,10 +28,10 @@
                         </div>
                         <div class="list-single-main-item_content fl-wrap">
                             <p>
-                                {!! $ecole->description !!}
+                                {!! $center->description !!}
                             </p>
-                            @if($ecole->website)
-                                <a href="{{$ecole->website}}"  class="btn color2-bg float-btn" target="_blank">
+                            @if($center->website)
+                                <a href="{{$center->website}}"  class="btn color2-bg float-btn" target="_blank">
                                     Visitez le site Web<i class="fal fa-chevron-right"></i>
                                 </a>
                             @endif
@@ -46,8 +46,8 @@
                         <div class="list-single-main-item_content fl-wrap">
                             <div class="listing-features fl-wrap">
                                 <ul class="no-list-style">
-                                    @if($ecole->facilities()->count())
-                                        @foreach($ecole->facilities as $fac)
+                                    @if($center->facilities()->count())
+                                        @foreach($center->facilities as $fac)
                                             <li class="tolt"  data-microtip-position="top" data-tooltip="{{$fac->description}}"><i class="fal {{$fac->icon_code}}"></i></li>
                                         @endforeach
 
@@ -293,7 +293,7 @@
                     --}}
                     <div class="list-single-main-item fl-wrap block_box" id="sec5">
                         <div class="list-single-main-item-title">
-                            <h3>Les avis -  <span> {{$ecole->reviews()->count()}} </span></h3>
+                            <h3>Les avis -  <span> 11 </span></h3>
                         </div>
                         {{--
                          <div class="reviews-score-wrap fl-wrap">
@@ -323,62 +323,19 @@
 
                        </div>
                        --}}
-                        <div class="list-single-main-item_content fl-wrap">
-                            <div class="reviews-comments-wrap">
-                                @foreach($ecole->reviews as $review)
-                                    <div class="reviews-comments-item">
-                                        <div class="review-comments-avatar">
-                                            <img src="{{asset('images/avatar/1.jpg')}}" alt="{{$review->name}}">
-                                        </div>
-                                        <div class="reviews-comments-item-text fl-wrap">
-                                            <div class="reviews-comments-header fl-wrap">
-                                                <h4><a href="#">{{$review->name}}</a></h4>
-                                                <div class="review-score-user">
-                                                    <span class="review-score-user_item">{{$review->score}}</span>
-                                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="{{str_replace('.0','',$review->score)}}"></div>
-                                                </div>
-                                            </div>
-                                            <p>
-                                                {!! $review->content !!}
-                                            </p>
-                                            <div class="reviews-comments-item-footer fl-wrap">
-                                                <div class="reviews-comments-item-date">
-                                                    <span><i class="far fa-calendar-check"></i>
-                                                       {{--12 April 2020--}}
-                                                        {{$review->created_at}}
-                                                    </span>
-                                                </div>
-                                                {{--
-                                                <a href="#" class="rate-review">
-                                                    <i class="fal fa-thumbs-up"></i>
-                                                    Helpful Review  <span>2</span>
-                                                </a>
-                                                --}}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
 
-                            </div>
-                        </div>
+                       {{---@include('front.center.single.review')--}}  
                     </div>
-                    <!-- list-single-main-item end -->
-                    <!-- list-single-main-item -->
+                   {{--
                     <div class="list-single-main-item fl-wrap block_box" id="sec6">
                         <div class="list-single-main-item-title fl-wrap">
                             <h3>Donner un avis</h3>
                         </div>
-                        <!-- Add Review Box -->
-                        {{-- @include('front.ecole.single.reviewForm')--}}
-
-
-                             <div id="add-review" class="add-review-box">
-                                 <example-component></example-component>
-                             </div>
-
+                     
+                         @include('front.ecole.single.reviewForm')
 
                     </div>
-
+                    --}}
                 </div>
             </div>
 
@@ -405,18 +362,18 @@
                 --}}
                 <div class="box-widget-item fl-wrap block_box">
                     <div class="box-widget-item-header">
-                        <h3>contacter l'ecole</h3>
+                        <h3>contacter le centre</h3>
                     </div>
                     <div class="box-widget">
                         <div class="box-widget-content">
-                            <form class="add-comment custom-form" method="post" action="{{route('ecoles.actions.review',$ecole->slug)}}">
+                            <form class="add-comment custom-form" method="post" action="{{route('ecoles.actions.review',$center->slug)}}">
                                 @csrf
-                                <input type="hidden" value="{{$ecole->id}}" name="appEcole">
+                                <input type="hidden" value="{{$center->id}}" name="appEcole">
                                 <input type="hidden" name="emailEcole" value="emailOk">
                                 <fieldset>
                                     <label><i class="fal fa-user"></i></label>
                                     <input type="text" name="name" placeholder="Votre Nom *" >
-                                    <input type="hidden" name="ecolemail" value="{{$ecole->email}}">
+                                    <input type="hidden" name="centermail" value="{{$center->email}}">
                                     <div class="clearfix"></div>
                                     <label><i class="fal fa-envelope"></i>  </label>
                                     <input type="email" name="email" placeholder="E-mail Adresse*" >
@@ -456,17 +413,17 @@
                     <div class="box-widget">
                         <div class="map-container">
 
-                            <div id="singleMap" data-latitude="{{$ecole->getCoordinates()[0]['lat']}}" data-longitude="{{$ecole->getCoordinates()[0]['lng']}}" data-mapTitle="Localisation"></div>
+                            <div id="singleMap" data-latitude="{{$center->getCoordinates()[0]['lat']}}" data-longitude="{{$center->getCoordinates()[0]['lng']}}" data-mapTitle="Localisation"></div>
                         </div>
                         <div class="box-widget-content bwc-nopad">
                             <div class="list-author-widget-contacts list-item-widget-contacts bwc-padside">
                                 <ul class="no-list-style">
-                                    <li><span><i class="fal fa-map-marker"></i>Adresse :</span> <a href="#">{{$ecole->addresse}}</a></li>
-                                    <li><span><i class="fal fa-phone"></i>Téléphone :</span> <a href="#">{{$ecole->tele}}</a></li>
-                                    <li><span><i class="fal fa-envelope"></i>E-mail :</span> <a href="#">{{$ecole->email}}</a></li>
+                                    <li><span><i class="fal fa-map-marker"></i>Adresse :</span> <a href="#">{{$center->addresse}}</a></li>
+                                    <li><span><i class="fal fa-phone"></i>Téléphone :</span> <a href="#">{{$center->tele}}</a></li>
+                                    <li><span><i class="fal fa-envelope"></i>E-mail :</span> <a href="#">{{$center->email}}</a></li>
                                     <li>
                                         <span><i class="fal fa-browser"></i>site internet :</span>
-                                        {{str_replace('https://www.','',$ecole->website) }}
+                                        {{str_replace('https://www.','',$center->website) }}
                                     </li>
                                 </ul>
                             </div>
