@@ -4,82 +4,71 @@ namespace App\Http\Controllers;
 
 use App\Models\Librairie;
 use Illuminate\Http\Request;
-
+use Spatie\QueryBuilder\AllowedFilter;
+use Spatie\QueryBuilder\QueryBuilder;
 class LibrairieController extends Controller
 {
-    /**
+
+        /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $cours = QueryBuilder::for(Librairie::class)
+
+        ->allowedFilters([
+
+            'area','type',
+            AllowedFilter::exact('niveaux', 'all_niveaux'),
+            AllowedFilter::exact('LaVille', 'ville_name'),
+            AllowedFilter::exact('livraison', 'livraison'),
+            AllowedFilter::exact('Arrondissement', 'area')
+
+        ])
+        // ->paginate(2)
+        // ->appends(request()->query());
+        ->get();
+
+        return view('front.libraire_v2.index',compact('cours'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function single(Request $request, $slug){
+
+        $ecole = Librairie::whereSlug($slug)->firstOrFail();
+
+        views($ecole)->record();
+
+        return view('front.libraire_v2.single.index',compact('ecole'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function storeReview(Request $request){
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Librairie  $librairie
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Librairie $librairie)
-    {
-        //
-    }
+        // return response()->json([$request->all()]);
+ 
+         $request->validate([
+             'name'=>'required|string',
+             'email'=>'required|email',
+             'avis'=>'required|string',
+             'score'=>'required|string',
+             'appEcole'=>'required|integer'
+         ]);
+ 
+         $ecole = Librairie::find($request->appEcole);
+ 
+         $ecole->reviews()->create([
+ 
+             'name'=>$request->name,
+             'email'=>$request->email,
+             'content'=>$request->avis,
+             'score'=>$request->score,
+             'Librairie_id'=>$request->appEcole
+         ]);
+ 
+         return response()->json([
+             'success'=>"merci pour votre avis éclairé ... votre avis sera publié le plus vite possible",
+         ]);
+     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Librairie  $librairie
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Librairie $librairie)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Librairie  $librairie
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Librairie $librairie)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Librairie  $librairie
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Librairie $librairie)
-    {
-        //
-    }
 }

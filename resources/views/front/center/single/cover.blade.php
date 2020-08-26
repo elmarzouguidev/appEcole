@@ -31,7 +31,7 @@
                             <div class="review-score">5.0</div>
                             <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
                             <br>
-                            <div class="reviews-count">10avis</div>
+                            <div class="reviews-count">{{$center->reviews()->count()}} avis</div>
                         </div>
                     </a>
                 </div>

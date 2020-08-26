@@ -324,18 +324,21 @@
                        </div>
                        --}}
 
-                       {{---@include('front.center.single.review')--}}  
+                       @include('front.center.single.review')
                     </div>
-                   {{--
+                   
                     <div class="list-single-main-item fl-wrap block_box" id="sec6">
                         <div class="list-single-main-item-title fl-wrap">
                             <h3>Donner un avis</h3>
                         </div>
                      
-                         @include('front.ecole.single.reviewForm')
+                        {{--@include('front.center.single.reviewForm')--}} 
+                        <div id="add-review" class="add-review-box">
+                            <center-review></center-review>
+                        </div>
 
                     </div>
-                    --}}
+                    
                 </div>
             </div>
 

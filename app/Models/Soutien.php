@@ -4,19 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Traits\Spatial;
-
-class Soutien extends Model
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
+class Soutien extends Model implements Viewable
 {
-    use Spatial;
+    use Spatial,InteractsWithViews;
 
     protected $spatial = ['positions'];
 
 
     public function ville(){
+
         return $this->belongsTo('App\Models\Ville');
+
     }
 
     public function area(){
+        
         return $this->belongsTo('App\Models\Area');
     }
 
@@ -29,6 +33,15 @@ class Soutien extends Model
         return $this->belongsToMany('App\Models\Filiere', 'filiere_soutien','soutien_id','filiere_id');
     }
 
+    public function facilities(){
+        
+        return $this->belongsToMany('App\Models\Facilitie', 'facilitie_soutien','soutien_id','facilitie_id');
+        // ->where('active',true)->get();
+    }
+
+    public function reviews(){
+        return $this->hasMany('App\Models\Review');
+    }
 
     public function getArea():string
     {
@@ -68,6 +81,6 @@ class Soutien extends Model
 
 
     public function getUrl(){
-        return  route('centers.single',$this->slug);
+        return  route('cours.single',$this->slug);
     }
 }

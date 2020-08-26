@@ -373,9 +373,10 @@
                         <!-- Add Review Box -->
                         {{-- @include('front.ecole.single.reviewForm')--}}
 
-
+     
                              <div id="add-review" class="add-review-box">
-                                 <example-component></example-component>
+                                 <soutien></soutien>
+                                
                              </div>
 
 

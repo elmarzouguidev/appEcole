@@ -2,7 +2,7 @@
     <div class="container">
         <div class="breadcrumbs inline-breadcrumbs fl-wrap">
             <a href="{{route('home')}}">Accueil</a>
-            <a href="{{route('ecoles')}}">Ecoles</a>
+            <a href="{{route('librairies')}}">librairies</a>
             <a href="#">{{$ecole->name}}</a><span> Détails</span>
         </div>
         <div class="clearfix"></div>
@@ -373,9 +373,10 @@
                         <!-- Add Review Box -->
                         {{-- @include('front.ecole.single.reviewForm')--}}
 
-
+     
                              <div id="add-review" class="add-review-box">
-                                 <example-component></example-component>
+                                 <soutien></soutien>
+                                
                              </div>
 
 

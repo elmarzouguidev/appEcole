@@ -46,7 +46,8 @@
                         <div class="facilities-list fl-wrap">
                             <div class="facilities-list-title">Facilities :</div>
                             <ul class="no-list-style">
-                                @if($ecole->facilities()->count())
+                                {{--
+                                @if($ecole->facilities())
                                     @foreach($ecole->facilities as $fac)
                                         <li class="tolt" data-microtip-position="top"
                                             data-tooltip="{{$fac->description}}"><i class="fal {{$fac->icon_code}}"></i>
@@ -56,6 +57,7 @@
                                 @else
                                     <li class="tolt" data-microtip-position="top"><i class="fal fa-ban"></i></li>
                                 @endif
+                                --}}
                             </ul>
                         </div>
                     </div>

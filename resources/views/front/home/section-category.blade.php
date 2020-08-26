@@ -18,16 +18,18 @@
             </div>
         --}}
         <div class="grid-item-holder gallery-items fl-wrap">
+            
             @foreach($librerais as $lib)
+          
                 <div class="gallery-item restaurant events">
                     <div class="listing-item">
                         <article class="geodir-category-listing fl-wrap">
                             <div class="geodir-category-img">
                                 <div class="geodir-js-favorite_btn"><i class="fal fa-heart"></i><span>Save</span></div>
-                                <a href="{{$lib->slug}}" class="geodir-category-img-wrap fl-wrap">
-                                    <img src="{{$lib->image}}" alt="">
+                                <a href="{{route('librairies.single',$lib->slug)}}" class="geodir-category-img-wrap fl-wrap">
+                                    <img src="{{Voyager::image($lib->image)}}" alt="">
                                 </a>
-                                <div class="listing-avatar"><a href="author-single.html"><img src="{{$lib->logo}}" alt=""></a>
+                                <div class="listing-avatar"><a href="author-single.html"><img src="{{Voyager::image($lib->logo)}}" alt=""></a>
                                     <span class="avatar-tooltip">Added By  <strong>Alisa Noory</strong></span>
                                 </div>
                                 {{--<div class="geodir_status_date gsd_open">

@@ -1,6 +1,6 @@
 <div class="list-single-main-item_content fl-wrap">
     <div class="reviews-comments-wrap">
-        @foreach($ecole->reviews as $review)
+        @foreach($center->reviews as $review)
             <div class="reviews-comments-item">
                 <div class="review-comments-avatar">
                     <img src="{{asset('images/avatar/1.jpg')}}" alt="{{$review->name}}">

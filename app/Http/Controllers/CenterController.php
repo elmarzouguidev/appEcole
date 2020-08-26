@@ -41,4 +41,33 @@ class CenterController extends Controller
         return view('front.center.single.index',compact('center'));
     }
 
+    
+    public function storeReview(Request $request){
+
+        // return response()->json([$request->all()]);
+ 
+         $request->validate([
+             'name'=>'required|string',
+             'email'=>'required|email',
+             'avis'=>'required|string',
+             'score'=>'required|string',
+             'appEcole'=>'required|integer'
+         ]);
+ 
+         $ecole = Center::find($request->appEcole);
+ 
+         $ecole->reviews()->create([
+ 
+             'name'=>$request->name,
+             'email'=>$request->email,
+             'content'=>$request->avis,
+             'score'=>$request->score,
+             'center_id'=>$request->appEcole
+         ]);
+ 
+         return response()->json([
+             'success'=>"merci pour votre avis éclairé ... votre avis sera publié le plus vite possible",
+         ]);
+     }
+
 }

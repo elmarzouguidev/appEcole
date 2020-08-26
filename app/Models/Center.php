@@ -34,9 +34,11 @@ class Center extends Model implements Viewable
         
         return $this->belongsToMany('App\Models\Facilitie', 'facilitie_center','center_id','facilitie_id');
         // ->where('active',true)->get();
-
     }
-
+    public function reviews(){
+        return $this->hasMany('App\Models\Review');
+    }
+    
     public function getArea():string
     {
         return $this->area()->first('slug')->getAttribute('slug');
@@ -74,6 +76,7 @@ class Center extends Model implements Viewable
             $query->all_langues = $query->getLangues();
         });
         // auto-sets values on update
+
         static::updating(function ($query) {
             $query->area = $query->getArea();
             $query->ville_name = $query->getVille();

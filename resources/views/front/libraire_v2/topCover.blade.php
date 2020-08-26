@@ -1,12 +1,12 @@
             <!--  section  -->
             <section class="parallax-section single-par" data-scrollax-parent="true">
-                <div class="bg par-elem "  data-bg="{{setting('center.center_image')}}" data-scrollax="properties: { translateY: '30%' }"></div>
+                <div class="bg par-elem "  data-bg="{{setting('ecole.ecole_head_image')}}" data-scrollax="properties: { translateY: '30%' }"></div>
                 <div class="overlay op7"></div>
                 <div class="container">
                     <div class="section-title center-align big-title">
-                        <h2><span>{{setting('center.center_title')}}</span></h2>
+                        <h2><span>espaces des ecoles</span></h2>
                         <span class="section-separator"></span>
-                        <h4>{{setting('center.center_desc')}}</h4>
+                        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec tincidunt arcu, sit amet fermentum sem.</h4>
                     </div>
                 </div>
                 <div class="header-sec-link">

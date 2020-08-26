@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use CyrildeWit\EloquentViewable\Contracts\Viewable;
+use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Traits\Spatial;
 
-class Librairie extends Model
+class Librairie extends Model implements Viewable
 {
 
-    use Spatial;
+    use Spatial,InteractsWithViews;
 
     protected $spatial = ['positions'];
 
@@ -21,6 +23,11 @@ class Librairie extends Model
         return $this->belongsTo('App\Models\Area');
     }
 
+    public function reviews(){
+        return $this->hasMany('App\Models\Review');
+    }
+
+    
     public function getArea():string
     {
         return $this->area()->first('slug')->getAttribute('slug');
@@ -55,16 +62,8 @@ class Librairie extends Model
     }
 
 
-    public function getSlugAttribute($value){
 
-        return  route('librairies.single',$value);
-       
-    }
-
-    public function getImageAttribute($value){
-        return Voyager::image($value);
-    }
-    public function getLogoAttribute($value){
-        return Voyager::image($value);
+    public function getUrl(){
+        return  route('librairies.single',$this->slug);
     }
 }

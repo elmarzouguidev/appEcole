@@ -2,7 +2,7 @@
                         <div class="container">
                             <div class="breadcrumbs inline-breadcrumbs fl-wrap block-breadcrumbs">
                                 <a href="{{route('home')}}">Accueil</a>
-                                <a href="{{route('ecoles')}}">Ecoles</a>
+                                <a href="{{route('centers')}}">Centre de langues </a>
                                 <a href="#">casablanca</a>
                                {{--<span>Listing Single</span> --}}
                             </div>
@@ -25,7 +25,7 @@
                                                 <div class="tabs-container fl-wrap">
                                                     <!--tab -->
                                                     <div class="tab">
-                                                        @include('front.ecole_v2.filters')
+                                                        @include('front.libraire_v2.filters')
                                                     </div>
                                                
                                                 </div>
@@ -38,7 +38,7 @@
                                         <div class="list-main-wrap-header fl-wrap block_box no-vis-shadow">
                                             <!-- list-main-wrap-title-->
                                             <div class="list-main-wrap-title">
-                                                <h2>{{setting('ecole.ecole_title')}}</span></h2>
+                                                <h2>Centre de langues</span></h2>
                                             </div>
                                           
                                             <div class="list-main-wrap-opt">
@@ -68,7 +68,7 @@
                                      
                                         <div class="listing-item-container init-grid-items fl-wrap nocolumn-lic">
                                            
-                                            @include('front.ecole_v2.ecoles')
+                                            @include('front.libraire_v2.soutien')
                                     
                                         </div>
                                       

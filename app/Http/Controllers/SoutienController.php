@@ -33,69 +33,40 @@ class SoutienController extends Controller
         return view('front.soutien_v2.index',compact('cours'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function single(Request $request, $slug){
+
+        $ecole = Soutien::whereSlug($slug)->firstOrFail();
+
+        views($ecole)->record();
+
+        return view('front.soutien_v2.single.index',compact('ecole'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function storeReview(Request $request){
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Soutien  $soutien
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Soutien $soutien)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Soutien  $soutien
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Soutien $soutien)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Soutien  $soutien
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Soutien $soutien)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Soutien  $soutien
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Soutien $soutien)
-    {
-        //
-    }
+        // return response()->json([$request->all()]);
+ 
+         $request->validate([
+             'name'=>'required|string',
+             'email'=>'required|email',
+             'avis'=>'required|string',
+             'score'=>'required|string',
+             'appEcole'=>'required|integer'
+         ]);
+ 
+         $ecole = Soutien::find($request->appEcole);
+ 
+         $ecole->reviews()->create([
+ 
+             'name'=>$request->name,
+             'email'=>$request->email,
+             'content'=>$request->avis,
+             'score'=>$request->score,
+             'soutien_id'=>$request->appEcole
+         ]);
+ 
+         return response()->json([
+             'success'=>"merci pour votre avis éclairé ... votre avis sera publié le plus vite possible",
+         ]);
+     }
 }
