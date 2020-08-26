@@ -46,14 +46,16 @@
                         <div class="list-single-main-item_content fl-wrap">
                             <div class="listing-features fl-wrap">
                                 <ul class="no-list-style">
-                                    @if($ecole->facilities()->count())
-                                        @foreach($ecole->facilities as $fac)
-                                            <li class="tolt"  data-microtip-position="top" data-tooltip="{{$fac->description}}"><i class="fal {{$fac->icon_code}}"></i></li>
-                                        @endforeach
+                                    {{--
+                                        @if($ecole->facilities()->count())
+                                            @foreach($ecole->facilities as $fac)
+                                                <li class="tolt"  data-microtip-position="top" data-tooltip="{{$fac->description}}"><i class="fal {{$fac->icon_code}}"></i></li>
+                                            @endforeach
 
-                                    @else
-                                        <li class="tolt"  data-microtip-position="top"><i class="fal fa-ban"></i></li>
-                                    @endif
+                                        @else
+                                            <li class="tolt"  data-microtip-position="top"><i class="fal fa-ban"></i></li>
+                                        @endif
+                                    --}}
                                 </ul>
                             </div>
                         </div>

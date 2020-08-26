@@ -26,10 +26,13 @@
                         <article class="geodir-category-listing fl-wrap">
                             <div class="geodir-category-img">
                                 <div class="geodir-js-favorite_btn"><i class="fal fa-heart"></i><span>Save</span></div>
-                                <a href="{{route('librairies.single',$lib->slug)}}" class="geodir-category-img-wrap fl-wrap">
+                                <a href="{{$lib->getUrl()}}" class="geodir-category-img-wrap fl-wrap">
                                     <img src="{{Voyager::image($lib->image)}}" alt="">
                                 </a>
-                                <div class="listing-avatar"><a href="author-single.html"><img src="{{Voyager::image($lib->logo)}}" alt=""></a>
+                                <div class="listing-avatar">
+                                    <a href="">
+                                       <img src="{{Voyager::image($lib->logo)}}" alt="">
+                                    </a>
                                     <span class="avatar-tooltip">Added By  <strong>Alisa Noory</strong></span>
                                 </div>
                                 {{--<div class="geodir_status_date gsd_open">
@@ -47,8 +50,8 @@
                             <div class="geodir-category-content fl-wrap">
                                 <div class="geodir-category-content-title fl-wrap">
                                     <div class="geodir-category-content-title-item">
-                                        <h3 class="title-sin_map"><a href="{{$lib->slug}}">{{$lib->name}}</a><span class="verified-badge"><i class="fal fa-check"></i></span></h3>
-                                        <div class="geodir-category-location fl-wrap"><a href="#5" class="map-item"><i class="fas fa-map-marker-alt"></i> 27th Brooklyn New York, USA</a></div>
+                                        <h3 class="title-sin_map"><a href="{{$lib->getUrl()}}">{{$lib->name}}</a><span class="verified-badge"><i class="fal fa-check"></i></span></h3>
+                                        <div class="geodir-category-location fl-wrap"><a href="#5" class="map-item"><i class="fas fa-map-marker-alt"></i> {{$lib->addresse}}</a></div>
                                     </div>
                                 </div>
                                 <div class="geodir-category-text fl-wrap">
@@ -72,8 +75,8 @@
                                 </div>
                                 <div class="geodir-category-footer fl-wrap">
                                     <a class="listing-item-category-wrap">
-                                        <div class="listing-item-category red-bg"><i class="fal fa-cheeseburger"></i></div>
-                                        <span>Restaurants</span>
+                                        <div class="listing-item-category yellow-bg"><i class="fal fa-city"></i></div>
+                                        <span>{{$lib->ville_name}}</span>
                                     </a>
                                     <div class="geodir-opt-list">
                                         <ul class="no-list-style">
